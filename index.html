@@ -5,26 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DaDevs Workspace</title>
     <link rel="manifest" href="manifest.json">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%230F172A'/%3E%3Cpath d='M100 15L175 58V142L100 185L25 142V58L100 15Z' stroke='%2322D3EE' stroke-width='8'/%3E%3Cpath d='M100 40V160' stroke='%23FFF' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M100 40C145 40 155 70 155 100C155 130 145 160 100 160' stroke='%238B5CF6' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M70 100L45 75M70 100L45 125' stroke='%23FFF' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='45' cy='75' r='6' fill='%2322D3EE'/%3E%3Ccircle cx='45' cy='125' r='6' fill='%238B5CF6'/%3E%3Ccircle cx='100' cy='100' r='8' fill='%23FFF'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%230F172A'/%3E%3Cpath d='M100 15L175 58V142L100 185L25 142V58L100 15Z' stroke='%2322D3EE' stroke-width='8'/%3E%3Cpath d='M100 40V160' stroke='%23FFF' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M100 40C145 40 155 70 155 100C155 130 145 160 100 160' stroke='%238B5CF6' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M70 100L45 75M70 100L45 125' stroke='%23FFF' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='45' cy='75' r='6' fill='%2322D3EE'/%3E%3Ccircle cx='45' cy='125' r='6' fill='%238B5CF6'/%3E%3Ccircle cx='100' cy='100' r='8' fill='%23FFF'/%3E%3C/svg%3E">
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root {
-            /* Dark Theme (Default) */
-            --bg-1: #0F172A; --bg-2: #1E293B;
-            --primary: #2D2A8C; --secondary: #22D3EE; --accent: #8B5CF6;
-            --text: #f8fafc; --text-muted: #94a3b8;
-            --card-bg: rgba(0,0,0,0.25); --glass-bg: rgba(255,255,255,0.05);
-            --glass-border: rgba(255,255,255,0.1); --nav-bg: rgba(15, 23, 42, 0.85);
-            --danger: #ef4444; --success: #10b981; --warning: #f59e0b;
+            --bg-1: #0F172A; --bg-2: #1E293B; --primary: #2D2A8C; --secondary: #22D3EE; --accent: #8B5CF6;
+            --text: #f8fafc; --text-muted: #94a3b8; --card-bg: rgba(0,0,0,0.25); --glass-bg: rgba(255,255,255,0.05);
+            --glass-border: rgba(255,255,255,0.1); --nav-bg: rgba(15, 23, 42, 0.85); --danger: #ef4444; --success: #10b981; --warning: #f59e0b;
         }
-        
         body.light-theme {
-            /* Light Theme Override */
-            --bg-1: #f1f5f9; --bg-2: #e2e8f0;
-            --text: #0f172a; --text-muted: #475569;
-            --card-bg: rgba(255,255,255,0.85); --glass-bg: rgba(255,255,255,0.95);
-            --glass-border: rgba(0,0,0,0.15); --nav-bg: rgba(248, 250, 252, 0.95);
+            --bg-1: #f1f5f9; --bg-2: #e2e8f0; --text: #0f172a; --text-muted: #475569;
+            --card-bg: rgba(255,255,255,0.85); --glass-bg: rgba(255,255,255,0.95); --glass-border: rgba(0,0,0,0.15); --nav-bg: rgba(248, 250, 252, 0.95); --secondary: #0284c7; --accent: #6366f1;
         }
-
         body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, var(--bg-1), var(--bg-2)); color: var(--text); overflow: hidden; height: 100dvh; width: 100vw; display: flex; justify-content: center; align-items: center; transition: background 0.4s ease, color 0.4s ease; }
         ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 3px; } ::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 3px; opacity: 0.5;}
         
@@ -37,10 +32,12 @@
         input:focus, select:focus, textarea:focus { border-color: var(--secondary); box-shadow: 0 0 8px rgba(34, 211, 238, 0.3); }
         input[type="file"] { padding: 9px 12px; font-size: 11px; color: var(--text-muted); cursor: pointer; }
         
-        button { width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 8px; font-size: 13px; transition: all 0.3s; }
+        button { width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin: 8px 0; font-size: 13px; transition: all 0.3s; }
         button:hover { background: var(--secondary); color: #fff; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(34, 211, 238, 0.4); }
+        button:disabled { background: rgba(255,255,255,0.1); cursor: not-allowed; transform: none; box-shadow: none; color: var(--text-muted); }
         button.danger { background: rgba(239, 68, 68, 0.15); border: 1px solid var(--danger); color: var(--danger); } button.danger:hover { background: var(--danger); color: #fff; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4); }
         button.success { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--success); color: var(--success); } button.success:hover { background: var(--success); color: #fff; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
+        button.warning { background: rgba(245, 158, 11, 0.15); border: 1px solid var(--warning); color: var(--warning); } button.warning:hover { background: var(--warning); color: #fff; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); }
         
         #app { display: none; width: 100vw; height: 100dvh; flex-direction: column; position: relative; }
         #authScreen { padding: 40px 30px; text-align: center; width: 360px; max-width: 90%; z-index: 10; }
@@ -57,13 +54,16 @@
         
         .branding-text { font-size: 11px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.5px; text-transform: lowercase; text-align: center; margin-top: 15px; }
         
-        #bottomNav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; padding: 10px 20px; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(20px); border-radius: 40px; border: 1px solid var(--glass-border); box-shadow: 0 10px 40px rgba(0,0,0,0.6); overflow-x: auto; max-width: 95vw;}
-        .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px 16px; border-radius: 12px; cursor: pointer; transition: 0.2s; color: var(--text-muted); min-width: 50px;}
-        .nav-item svg { width: 22px; height: 22px; flex-shrink: 0; transition: 0.2s; stroke: currentColor;} .nav-text { font-size: 10px; font-weight: 600; transition: 0.2s; display: none; white-space: nowrap;}
+        #bottomNav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; padding: 10px 20px; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(20px); border-radius: 40px; border: 1px solid var(--glass-border); box-shadow: 0 10px 40px rgba(0,0,0,0.6); overflow-x: visible; width: max-content; max-width: 95vw;}
+        .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px 12px; border-radius: 12px; cursor: pointer; transition: 0.2s; color: var(--text-muted); flex: 1; min-width: 0;}
+        .nav-item svg { width: 20px; height: 20px; flex-shrink: 0; transition: 0.2s; stroke: currentColor;} .nav-text { font-size: 9px; font-weight: 600; transition: 0.2s; display: none; white-space: nowrap;}
         .nav-item:hover, .nav-item.active { background: rgba(255, 255, 255, 0.1); color: var(--secondary); transform: translateY(-4px); } .nav-item:hover svg, .nav-item.active svg { transform: scale(1.1); filter: drop-shadow(0 0 8px var(--secondary)); } .nav-item:hover .nav-text, .nav-item.active .nav-text { display: block; }
         body.light-theme .nav-item.active { background: rgba(0,0,0,0.05); }
 
         .avatar-wrapper { width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 2px solid var(--glass-border); display: flex; justify-content: center; align-items: center; flex-shrink: 0; background: var(--card-bg); position: relative;} .avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; } .avatar-wrapper svg { width: 60%; height: 60%; color: var(--text-muted); opacity: 0.8; margin-top: 15%;}
+        
+        .theme-toggle { background: transparent; border: 1px solid var(--glass-border); width: auto; padding: 8px 16px; border-radius: 20px; font-size: 12px; color: var(--text); display: inline-flex; align-items: center; gap: 8px; margin-top: 10px;}
+        .theme-toggle:hover { background: rgba(255,255,255,0.1); transform: none; box-shadow: none; }
         
         .notif-bell { position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: var(--card-bg); border: 1px solid var(--glass-border); transition: 0.2s; }
         .notif-bell:hover { background: rgba(255,255,255,0.1); border-color: var(--secondary); color: var(--secondary); }
@@ -71,29 +71,55 @@
         .notif-dropdown { position: absolute; top: 50px; right: 0; width: 300px; max-height: 400px; overflow-y: auto; background: var(--bg-1); border: 1px solid var(--glass-border); border-radius: 12px; padding: 15px; z-index: 2500; display: none; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
         body.light-theme .notif-dropdown { background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        .pwd-toggle { position: absolute; right: 12px; top: 18px; cursor: pointer; font-size: 16px; opacity: 0.7; transition: 0.2s; }
-        .pwd-toggle:hover { opacity: 1; }
+        .pwd-toggle { position: absolute; right: 12px; top: 18px; cursor: pointer; font-size: 16px; opacity: 0.7; transition: 0.2s; } .pwd-toggle:hover { opacity: 1; }
 
-        /* Mobile Responsiveness */
+        /* Collapse Header */
+        .collapse-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px; margin-bottom: 10px; transition: 0.2s;}
+        .collapse-header:hover { color: var(--secondary); }
+        .fab-add { position: fixed; right: 24px; bottom: 92px; width: 58px; height: 58px; border-radius: 50%; z-index: 1400; display: none; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 18px 35px rgba(0,0,0,0.35); }
+        .profile-detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 15px; }
+        .profile-detail { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 10px; padding: 12px; font-size: 12px; }
+        .profile-detail strong { display: block; color: var(--secondary); font-size: 10px; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.4px; }
+        .pin-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        .tab-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
+        .tab-btn { width: auto; padding: 8px 12px; margin: 0; background: transparent; border: 1px solid var(--glass-border); color: var(--text); }
+        .tab-btn.active { background: rgba(34,211,238,0.12); border-color: var(--secondary); color: var(--secondary); }
+
         @media (max-width: 768px) {
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
             .header-top { padding-bottom: 10px; margin-bottom: 10px; }
-            #bottomNav { padding: 5px; border-radius: 0; bottom: 0; width: 100vw; max-width: 100vw; border-left: none; border-right: none; border-bottom: none; }
-            #main { padding: 10px; padding-bottom: 70px; }
-            .modal-content { padding: 20px; }
+            #bottomNav { padding: 4px 2px; border-radius: 0; bottom: 0; width: 100%; max-width: 100%; border-left: none; border-right: none; border-bottom: none; justify-content: space-evenly; }
+            .nav-item { padding: 6px 2px; min-width: 0; } .nav-item svg { width: 18px; height: 18px; }
+            #main { padding: 10px; padding-bottom: 60px; } .modal-content { padding: 20px; }
             .notif-dropdown { position: fixed; top: 60px; right: 10px; left: 10px; width: auto; }
-            .admin-panel .flex-row { flex-direction: column; align-items: stretch; }
-            .admin-panel .flex-row > * { width: 100%; margin-bottom: 5px; }
+            .admin-panel .flex-row { flex-direction: column; align-items: stretch; } .admin-panel .flex-row > * { width: 100%; margin-bottom: 5px; }
+            .fab-add { right: 16px; bottom: 74px; }
         }
 
         #loadingOverlay { position: fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index: 999999; display:none; justify-content:center; align-items:center; flex-direction: column; color: var(--secondary); font-weight:bold; backdrop-filter: blur(8px); }
+        #updateOverlay { position: fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(15, 23, 42, 0.95); z-index: 9999999; display:none; justify-content:center; align-items:center; flex-direction: column; color: var(--secondary); font-weight:bold; backdrop-filter: blur(15px); }
         .loader-spinner { width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.1); border-top-color: var(--secondary); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; } @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        .timeline-table { width: 100%; border-collapse: collapse; min-width: 800px; } .timeline-table th { text-align: left; padding: 8px 10px; font-size: 10px; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid var(--glass-border); white-space: nowrap; } .timeline-table td { padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 12px; vertical-align: middle; white-space: nowrap; }
+        /* Module Specific CSS */
+        .admin-panel { padding: 15px; margin-bottom: 15px; border-left: 4px solid var(--accent); background: var(--card-bg); border-radius: 8px; }
+        .flex-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        .kanban-board { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 15px; scroll-snap-type: x mandatory;} .kanban-col { flex: 1; min-width: 280px; display: flex; flex-direction: column; background: var(--card-bg); border-radius: 10px; padding: 12px; border: 1px solid var(--glass-border); scroll-snap-align: center;} .task-card { background: var(--glass-bg); padding: 15px; border-radius: 8px; margin-bottom: 10px; border: 1px solid var(--glass-border); position: relative;}
+        .timeline-table { width: 100%; border-collapse: collapse; min-width: 800px; } .timeline-table th { text-align: left; padding: 8px 10px; font-size: 10px; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid var(--glass-border); white-space: nowrap; } .timeline-table td { padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 12px; vertical-align: middle; white-space: nowrap; } .gantt-track { background: var(--card-bg); height: 18px; border-radius: 9px; position: relative; overflow: hidden; border: 1px solid var(--glass-border); width: 100%; min-width: 150px; }
+        .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; margin-top: 12px; } .cal-header { font-weight: bold; color: var(--secondary); font-size: 11px; padding-bottom: 8px; } .cal-day { background: var(--card-bg); padding: 8px; border-radius: 6px; border: 1px solid var(--glass-border); min-height: 50px; display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: 0.2s;} .cal-day:hover { background: rgba(255,255,255,0.05); border-color: var(--secondary); } .cal-day.empty { background: transparent; border: none; cursor: default; } .cal-day.today { border-color: var(--secondary); background: rgba(34, 211, 238, 0.1); } .cal-event-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 4px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; } .gallery-item { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--glass-border); aspect-ratio: 1 / 1; cursor: pointer; background: var(--card-bg);} .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; } .gallery-item:hover img { transform: scale(1.08); } .folder-overlay { position: absolute; inset: 0; background: rgba(15, 23, 42, 0.75); display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; transition: 0.3s; backdrop-filter: blur(2px);}
+        #lightboxModal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); z-index: 100000; display: none; justify-content: center; align-items: center; flex-direction: column; backdrop-filter: blur(8px); }
     </style>
 </head>
 <body>
 
+    <script>
+        if(localStorage.getItem('dadevs_theme') === 'light') {
+            document.documentElement.classList.add('light-theme');
+            document.body.classList.add('light-theme');
+        }
+    </script>
+
+    <div id="updateOverlay"><div class="loader-spinner"></div><h2 class="neon" style="margin:0 0 10px 0;">System Update Required</h2><p style="color: var(--text-muted); font-size: 14px;">Applying latest architectural patches...</p></div>
     <div id="loadingOverlay"><div class="loader-spinner"></div><div id="loadingText">Synchronizing...</div></div>
 
     <div id="customDialog" class="modal-overlay" style="z-index: 9999999;">
@@ -149,12 +175,12 @@
     <div id="app">
         <div id="main">
             <div class="header-top">
-                <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 15px; cursor:pointer;" onclick="openProfileSettings()" title="View/Edit Profile">
                     <div id="headerAvatar" class="avatar-wrapper" style="width: 42px; height: 42px; border-color: var(--secondary); box-shadow: 0 0 10px rgba(34,211,238,0.3);"></div>
                     <div><h2 id="viewTitle" class="neon" style="margin:0; font-size: 24px; letter-spacing: 0.5px;">Lobby</h2><span class="branding-text" style="text-align: left; margin-top: 2px; display: block;">powered by brenduling</span></div>
                 </div>
                 <div style="display: flex; gap: 10px; align-items: center;">
-                    <div class="notif-bell" onclick="toggleNotifs()">
+                    <div id="viewToggleContainer"></div> <div class="notif-bell" onclick="toggleNotifs()">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                         <span id="notifDot" class="notif-dot"></span>
                         <div id="notifDropdown" class="notif-dropdown glass" onclick="event.stopPropagation()">
@@ -173,37 +199,47 @@
 
     <div id="profileSettingsModal" class="modal-overlay">
         <div class="modal-content">
-            <h3 class="neon" style="margin-top: 0;">Personalization</h3>
-            <label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Bio / Status</label>
+            <h3 class="neon" style="margin-top: 0;">Personalization & Setup</h3>
+            
+            <div class="grid-2">
+                <div><label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Full Name</label><input id="p_fullname"></div>
+                <div><label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Username (Login ID)</label><input id="p_username"></div>
+            </div>
+
+            <label style="font-size:11px; color:var(--text-muted); font-weight:bold; margin-top:10px; display:block;">Bio / Status</label>
             <textarea id="p_bio" placeholder="What's on your mind?"></textarea>
             
-            <div class="grid-2" style="margin-top: 10px;">
+            <h4 style="margin: 15px 0 5px 0; color: var(--secondary); border-bottom: 1px solid var(--glass-border); padding-bottom: 5px;">Public Contact Data</h4>
+            <div class="grid-2">
+                <input id="p_email" placeholder="Public Email Address">
+                <input id="p_phone" placeholder="Contact Number">
+                <input id="p_messenger" placeholder="Messenger URL">
+                <input id="p_github" placeholder="GitHub URL">
+            </div>
+
+            <h4 style="margin: 15px 0 5px 0; color: var(--secondary); border-bottom: 1px solid var(--glass-border); padding-bottom: 5px;">Aesthetics & Cache</h4>
+            <div class="grid-3" style="margin-top: 10px;">
                 <div>
                     <label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Sticker / Emoji</label>
                     <input id="p_sticker" placeholder="e.g. 👾">
                 </div>
                 <div>
-                    <label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Interface Theme</label>
-                    <button onclick="toggleTheme()" style="background:var(--card-bg); border:1px solid var(--glass-border); color:var(--text);">🌓 Toggle Light/Dark</button>
+                    <label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Highlight (Hex)</label>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <input type="color" id="p_color_sec" style="width: 40px; padding:0; cursor:pointer; height:38px; border:none; background:none;">
+                        <input type="text" id="p_color_sec_txt" style="flex:1; margin:0;" oninput="document.getElementById('p_color_sec').value = this.value">
+                    </div>
+                </div>
+                <div>
+                    <label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Accent (Hex)</label>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <input type="color" id="p_color_acc" style="width: 40px; padding:0; cursor:pointer; height:38px; border:none; background:none;">
+                        <input type="text" id="p_color_acc_txt" style="flex:1; margin:0;" oninput="document.getElementById('p_color_acc').value = this.value">
+                    </div>
                 </div>
             </div>
 
-            <div class="grid-2" style="margin-top: 10px;">
-                <div>
-                    <label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Highlight Color (Hex)</label>
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="color" id="p_color_sec" style="width: 40px; padding:0; cursor:pointer; height:38px; border:none; background:none;">
-                        <input type="text" id="p_color_sec_txt" readonly style="flex:1; margin:0;" value="#22D3EE">
-                    </div>
-                </div>
-                <div>
-                    <label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Accent Color (Hex)</label>
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="color" id="p_color_acc" style="width: 40px; padding:0; cursor:pointer; height:38px; border:none; background:none;">
-                        <input type="text" id="p_color_acc_txt" readonly style="flex:1; margin:0;" value="#8B5CF6">
-                    </div>
-                </div>
-            </div>
+            <button class="warning" style="width:100%; margin-top:20px;" onclick="forceClearCache()">🔄 Force Clear App Cache (Fixes bugs)</button>
 
             <div style="display: flex; gap: 12px; margin-top: 25px;">
                 <button class="danger" onclick="hideModal('profileSettingsModal')">Cancel</button>
@@ -212,21 +248,32 @@
         </div>
     </div>
 
+    <div id="userProfileModal" class="modal-overlay">
+        <div class="modal-content" id="userProfileModalContent" style="padding: 0; overflow: hidden;"></div>
+    </div>
+
     <div id="createWsModal" class="modal-overlay">
         <div class="modal-content">
             <h3 class="neon" style="margin-top: 0; font-size: 24px;">Provision Workspace</h3>
-            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 25px;">Maximum 10 per resident.</p>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">Maximum 10 per resident.</p>
             <input id="wsName" placeholder="Workspace Designation (Name)">
-            <div style="text-align: left; margin-top: 15px; background: var(--card-bg); padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border);">
+            
+            <div id="createFundSettings" class="fund-settings-container" style="display:none;">
+                <h4 style="margin: 15px 0 5px 0; color: var(--secondary); border-bottom: 1px solid var(--glass-border); padding-bottom: 5px;">Fund Settings</h4>
+                <div class="grid-2" style="margin-bottom: 15px;">
+                    <div><label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Amount (₱)</label><input id="wsFundAmt" type="number" value="50" placeholder="e.g. 50" style="margin:0;"></div>
+                    <div><label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Frequency</label><select id="wsFundFreq" style="margin:0;"><option value="Daily">Daily</option><option value="Weekly" selected>Weekly</option><option value="Monthly">Monthly</option><option value="Yearly">Yearly</option><option value="One-Time">One-Time</option></select></div>
+                </div>
+            </div>
+
+            <div style="text-align: left; margin-top: 10px; background: var(--card-bg); padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border);">
                 <label style="font-size: 11px; color: var(--text-muted); font-weight: bold; margin-bottom: 5px; display: block;">Workspace Iconography (Photo)</label>
                 <input id="wsPhotoFile" type="file" accept="image/*" style="margin: 0; padding: 0; background: transparent; border: none;">
             </div>
-            <h4 style="margin: 25px 0 15px 0; color: var(--secondary); border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;">Active Modules (Max 6)</h4>
+
+            <h4 style="margin: 25px 0 15px 0; color: var(--secondary); border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;">Active Modules</h4>
             <div id="featureList" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;"></div>
-            <div style="display: flex; gap: 12px; margin-top: 30px;">
-                <button class="danger" onclick="hideModal('createWsModal')">Abort</button>
-                <button class="success" onclick="submitWorkspace()">Submit Request</button>
-            </div>
+            <div style="display: flex; gap: 12px; margin-top: 30px;"><button class="danger" onclick="hideModal('createWsModal')">Abort</button><button class="success" onclick="submitWorkspace()">Submit Request</button></div>
         </div>
     </div>
 
@@ -234,14 +281,28 @@
         <div class="modal-content">
             <h3 class="neon" style="margin-top: 0; font-size: 24px;">Modify Workspace</h3>
             <input id="e_wsName" placeholder="Workspace Designation (Name)">
+
+            <div id="editFundSettings" class="fund-settings-container" style="display:none;">
+                <h4 style="margin: 15px 0 5px 0; color: var(--secondary); border-bottom: 1px solid var(--glass-border); padding-bottom: 5px;">Fund Settings</h4>
+                <div class="grid-2" style="margin-bottom: 15px;">
+                    <div><label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Amount (₱)</label><input id="e_wsFundAmt" type="number" placeholder="e.g. 50" style="margin:0;"></div>
+                    <div><label style="font-size:11px; color:var(--text-muted); font-weight:bold;">Frequency</label><select id="e_wsFundFreq" style="margin:0;"><option value="Daily">Daily</option><option value="Weekly">Weekly</option><option value="Monthly">Monthly</option><option value="Yearly">Yearly</option><option value="One-Time">One-Time</option></select></div>
+                </div>
+            </div>
+
             <div style="text-align: left; margin-top: 15px; background: var(--card-bg); padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border);">
                 <label style="font-size: 11px; color: var(--text-muted); font-weight: bold; margin-bottom: 5px; display: block;">Update Workspace Photo (Leave blank to keep)</label>
                 <input id="e_wsPhotoFile" type="file" accept="image/*" style="margin: 0; padding: 0; background: transparent; border: none;">
             </div>
-            <h4 style="margin: 25px 0 15px 0; color: var(--secondary); border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;">Update Modules (Max 6)</h4>
+            <h4 style="margin: 25px 0 15px 0; color: var(--secondary); border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;">Update Modules</h4>
             <div id="e_featureList" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;"></div>
-            <div style="display: flex; gap: 12px; margin-top: 30px;">
-                <button class="danger" onclick="hideModal('editWsModal')">Abort</button>
+            
+            <div style="margin-top: 30px; border-top: 1px solid var(--glass-border); padding-top: 20px;">
+                <button class="danger" onclick="deleteWorkspace()" style="background: rgba(239, 68, 68, 0.2); color: #ff4444; border: 1px solid #ff4444;">⚠️ Delete Entire Workspace</button>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 15px;">
+                <button class="danger" style="background: rgba(255,255,255,0.1); border:none; color: var(--text);" onclick="hideModal('editWsModal')">Abort</button>
                 <button class="success" onclick="saveWorkspaceEdit()">Save Changes</button>
             </div>
         </div>
@@ -261,24 +322,69 @@
     </div>
 
     <div id="searchModal" class="modal-overlay">
-        <div class="modal-content">
+        <div class="modal-content" style="position: relative;">
+            <button style="position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: var(--text-muted); font-size: 20px; width: auto; padding: 0; margin: 0; box-shadow: none; transform: none; transition: 0.2s;" onclick="hideModal('searchModal')" onmouseover="this.style.color='var(--danger)'" onmouseout="this.style.color='var(--text-muted)'">✖</button>
+            
             <h3 class="neon" style="margin-top: 0; font-size: 24px;">Global Network Search</h3>
-            <select id="searchType" onchange="document.getElementById('searchInput').placeholder = this.value === 'users' ? 'Target Username...' : 'Target Workspace ID...'" style="margin-bottom: 10px;">
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px;">Query the central database for residents or active environments.</p>
+            <select id="searchType" onchange="document.getElementById('searchInput').placeholder = this.value === 'users' ? 'Search Username or Name...' : 'Search Workspace Name...'; document.getElementById('searchInput').value=''; document.getElementById('searchResults').innerHTML='';" style="margin-bottom: 10px;">
                 <option value="users">Resident Query (Users)</option><option value="workspaces">Environment Query (Workspaces)</option>
             </select>
-            <input id="searchInput" placeholder="Target Username...">
-            <button class="success" onclick="executeSearch()" style="margin-top: 10px;">Execute Query</button>
+            <input id="searchInput" placeholder="Search Username or Name..." oninput="handleSearchInput()">
+            
             <div id="searchResults" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px; max-height:250px; overflow-y:auto; padding-right: 5px;"></div>
-            <button class="danger" onclick="hideModal('searchModal')" style="margin-top: 20px;">Close Terminal</button>
         </div>
     </div>
 
     <div id="lightboxModal" onclick="if(event.target === this) closeLightbox()">
         <img id="lightboxImg" src="" style="max-width:90vw; max-height:80vh; object-fit:contain; border-radius:8px; box-shadow:0 10px 40px rgba(0,0,0,0.7);">
-        <div id="lightboxCaption" style="color: #fff; margin-top: 15px; font-weight: bold;"></div>
+        <div id="lightboxCaption" style="color: #fff; margin-top: 15px; font-weight: bold; font-size: 16px;"></div>
     </div>
 
+    <div id="actionFormModal" class="modal-overlay">
+        <div class="modal-content" id="actionFormContent"></div>
+    </div>
+    <div id="superAdminPasswordModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 class="neon" style="margin-top:0;">Super Admin Verification</h3>
+            <p style="font-size:13px; color:var(--text-muted);">Enter the super admin password to open privileged workspace visibility.</p>
+            <div style="position:relative;">
+                <input id="superAdminPasswordInput" type="password" placeholder="Super Admin Password" onkeydown="if(event.key === 'Enter') submitSuperAdminPassword()">
+                <span class="pwd-toggle" onclick="togglePwd('superAdminPasswordInput')">👁️</span>
+            </div>
+            <div style="display:flex; gap:12px; margin-top:15px;">
+                <button class="danger" onclick="cancelSuperAdminPassword()">Cancel</button>
+                <button class="success" onclick="submitSuperAdminPassword()">Verify</button>
+            </div>
+        </div>
+    </div>
+    <button id="moduleFab" class="success fab-add" onclick="openActionForm(currentModule)">+</button>
+
 <script>
+    // --- PWA AUTO UPDATER & CACHE CLEAR ---
+    const APP_VERSION = "v1.9"; 
+    async function checkForUpdates() {
+        try {
+            const res = await fetch(window.location.href, { cache: "no-store" });
+            const text = await res.text();
+            if (!text.includes(`const APP_VERSION = "${APP_VERSION}";`)) {
+                customConfirm("A new system patch is available. Update now to avoid sync issues?", () => {
+                    window.location.reload(true);
+                }, "System Update Required", "🔄");
+            }
+        } catch(e) {}
+    }
+    setTimeout(checkForUpdates, 5000); 
+    setInterval(checkForUpdates, 900000); 
+
+    window.forceClearCache = async () => {
+        if('caches' in window) {
+            const keys = await caches.keys();
+            await Promise.all(keys.map(k => caches.delete(k)));
+        }
+        window.location.reload(true);
+    };
+
     // --- DB CONFIG & GLOBALS ---
     const db = window.supabase.createClient('https://vvjzcnsoptekxzmnfser.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ2anpjbnNvcHRla3h6bW5mc2VyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0ODM5MDUsImV4cCI6MjA5MDA1OTkwNX0.14YaELHtedlKMQJNAoAtPdOXh-Czjl3MVNUAf97yAyo');
     const CLOUD_NAME = "dsdy1e1wl"; const UPLOAD_PRESET = "dadevs_preset"; const PSEUDO_DOMAIN = "@dadevs.local";
@@ -298,7 +404,199 @@
     };
 
     let sessionUser = null; let userProfile = null; let currentWorkspace = null; let myWorkspaces = []; let wsMembersFull = [];
+    let isViewerMode = false; 
+    let personalLobbyItems = [];
+    let profileDirectory = [];
     const availableFeatures = ['Dashboard', 'Gallery', 'Sprint Board', 'Timeline', 'Funds', 'Calendar', 'Resources', 'Links'];
+    const modulesWithAddAction = new Set(['Sprint Board', 'Timeline', 'Funds', 'Calendar', 'Resources', 'Links', 'Gallery']);
+    const PIN_STORAGE_KEY = 'dadevs_pinned_items_v1';
+    const SUPERADMIN_ACCESS_MS = 5 * 60 * 1000;
+    let superAdminAccessUntil = 0;
+
+    const hasFeature = (feature) => !!(currentWorkspace?.workspaces?.features || []).includes(feature);
+    const canManageFunds = () => isAdmin() && hasFeature('Funds');
+    const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+
+    function getPinnedItems() {
+        try { return JSON.parse(localStorage.getItem(PIN_STORAGE_KEY) || '[]'); }
+        catch { return []; }
+    }
+    function savePinnedItems(items) {
+        localStorage.setItem(PIN_STORAGE_KEY, JSON.stringify(items));
+    }
+    function getMyPinnedItems() {
+        if(!sessionUser) return [];
+        return getPinnedItems().filter(item => item.user_id === sessionUser.id);
+    }
+    function isPinned(module, itemId, workspaceId = currentWorkspace?.workspace_id) {
+        return getMyPinnedItems().some(item => item.module === module && item.item_id === itemId && item.workspace_id === workspaceId);
+    }
+    function togglePinItem(item) {
+        if(!sessionUser) return;
+        const pins = getPinnedItems();
+        const index = pins.findIndex(pin => pin.user_id === sessionUser.id && pin.workspace_id === item.workspace_id && pin.module === item.module && pin.item_id === item.item_id);
+        if(index >= 0) pins.splice(index, 1);
+        else pins.unshift({ ...item, user_id: sessionUser.id, pinned_at: new Date().toISOString() });
+        savePinnedItems(pins);
+        if(document.getElementById('userProfileModal').style.display === 'flex') {
+            const activeTarget = document.getElementById('userProfileModalContent').dataset.userId;
+            if(activeTarget) openWorkspaceUserModal(activeTarget);
+        } else if(currentModule) {
+            renderModule(currentModule);
+        }
+    }
+    window.togglePinEncoded = (encoded) => togglePinItem(JSON.parse(decodeURIComponent(encoded)));
+    function renderPinButton(item) {
+        const pinned = isPinned(item.module, item.item_id, item.workspace_id);
+        const payload = encodeURIComponent(JSON.stringify(item));
+        return `<button class="${pinned ? 'warning' : 'success'}" style="width:auto;padding:6px 10px;margin:0;" onclick="event.stopPropagation();togglePinEncoded('${payload}')">${pinned ? 'Unpin' : 'Pin'}</button>`;
+    }
+    function renderModuleFab(mod) {
+        const fab = document.getElementById('moduleFab');
+        if(isAdmin() && modulesWithAddAction.has(mod)) fab.style.display = 'flex';
+        else fab.style.display = 'none';
+    }
+    function getProfileContactDetails(prof) {
+        return [
+            { label: 'Email', value: prof.contact_email || 'Not provided' },
+            { label: 'Phone', value: prof.phone || 'Not provided' },
+            { label: 'Messenger', value: prof.messenger || 'Not provided' },
+            { label: 'GitHub', value: prof.github || 'Not provided' }
+        ];
+    }
+    function getProfileByUsername(username) {
+        return profileDirectory.find(profile => profile.username?.toLowerCase() === username.toLowerCase()) || wsMembersFull.find(member => member.profile.username?.toLowerCase() === username.toLowerCase())?.profile || null;
+    }
+    function renderProfileChip(profile) {
+        const avatar = profile.avatar_url ? `<img src="${profile.avatar_url}" style="width:100%;height:100%;object-fit:cover;">` : svgs["User"];
+        return `<span style="display:inline-flex;align-items:center;vertical-align:middle; margin-right:6px; cursor:pointer;" onclick="openWorkspaceUserModal('${profile.id}')"><span class="avatar-wrapper" style="width:24px;height:24px;border-color:var(--secondary);">${avatar}</span></span>`;
+    }
+    function renderTextWithMentions(text) {
+        if(!text) return '';
+        return escapeHtml(text).replace(/@([a-z0-9_]+)/gi, (_, username) => {
+            const profile = getProfileByUsername(username);
+            return profile ? `${renderProfileChip(profile)}` : `@${username}`;
+        });
+    }
+    async function loadPersonalLobbyItems() {
+        if(!sessionUser) return personalLobbyItems = [];
+        const workspaceIds = myWorkspaces.map(w => w.workspace_id);
+        if(!workspaceIds.length) return personalLobbyItems = [];
+        const [
+            { data: tasks, error: taskErr },
+            { data: funds, error: fundErr }
+        ] = await Promise.all([
+            db.from('timeline').select('id, workspace_id, title, sched_date, progress').in('workspace_id', workspaceIds).eq('owner', sessionUser.id),
+            db.from('funds').select('id, workspace_id, type, date, amount, description, contributor_id').in('workspace_id', workspaceIds).eq('contributor_id', sessionUser.id)
+        ]);
+        if(taskErr) throw taskErr;
+        if(fundErr) throw fundErr;
+        const workspaceNameMap = Object.fromEntries(myWorkspaces.map(w => [w.workspace_id, w.workspaces.name]));
+        personalLobbyItems = [
+            ...(tasks || []).map(task => ({
+                kind: 'task',
+                workspace_id: task.workspace_id,
+                workspace_name: workspaceNameMap[task.workspace_id] || 'Workspace',
+                title: task.title,
+                date: task.sched_date,
+                progress: task.progress,
+                item_id: task.id
+            })),
+            ...(funds || []).map(fund => ({
+                kind: 'fund',
+                workspace_id: fund.workspace_id,
+                workspace_name: workspaceNameMap[fund.workspace_id] || 'Workspace',
+                title: fund.description || 'Contribution',
+                date: fund.date,
+                amount: fund.amount,
+                type: fund.type,
+                item_id: fund.id
+            }))
+        ].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+    }
+    async function requestSuperAdminPassword() {
+        return new Promise(resolve => {
+            window.__resolveSuperAdminPassword = resolve;
+            document.getElementById('superAdminPasswordInput').value = '';
+            showModal('superAdminPasswordModal');
+            setTimeout(() => document.getElementById('superAdminPasswordInput').focus(), 50);
+        });
+    }
+    window.submitSuperAdminPassword = () => {
+        const value = document.getElementById('superAdminPasswordInput').value;
+        hideModal('superAdminPasswordModal');
+        if(window.__resolveSuperAdminPassword) window.__resolveSuperAdminPassword(value);
+        window.__resolveSuperAdminPassword = null;
+    };
+    window.cancelSuperAdminPassword = () => {
+        hideModal('superAdminPasswordModal');
+        if(window.__resolveSuperAdminPassword) window.__resolveSuperAdminPassword('');
+        window.__resolveSuperAdminPassword = null;
+    };
+    function renderPinnedSection(targetId) {
+        if(targetId !== sessionUser?.id) return '';
+        const pins = getMyPinnedItems();
+        return `
+            <div style="margin-top:15px; text-align:center;">
+                <button class="warning" style="width:auto;" onclick="showProfilePins()">Pinned (${pins.length})</button>
+            </div>
+        `;
+    }
+    function showProfilePins() {
+        const pins = getMyPinnedItems();
+        const content = pins.length ? pins.map(pin => `
+            <div style="padding:12px;background:var(--card-bg);border:1px solid var(--glass-border);border-radius:10px;display:flex;justify-content:space-between;gap:10px;align-items:center;">
+                <div>
+                    <div style="font-weight:bold;">${escapeHtml(pin.title || pin.caption || pin.item_id)}</div>
+                    <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">${escapeHtml(pin.workspace_name || 'Workspace')} • ${escapeHtml(pin.module)}</div>
+                </div>
+                <div class="pin-row">
+                    ${pin.url ? `<button class="success" style="width:auto;padding:6px 10px;margin:0;" onclick="window.open('${pin.url}','_blank')">Open</button>` : ''}
+                    <button class="danger" style="width:auto;padding:6px 10px;margin:0;" onclick="togglePinEncoded('${encodeURIComponent(JSON.stringify(pin))}')">Remove</button>
+                </div>
+            </div>
+        `).join('') : `<p style="font-size:12px;color:var(--text-muted);text-align:center;margin:0;">No pinned items yet.</p>`;
+        document.getElementById('actionFormContent').innerHTML = `<h3 class="neon" style="margin-top:0;">Pinned Items</h3><div style="display:flex;flex-direction:column;gap:10px;">${content}</div><button class="danger" onclick="hideModal('actionFormModal')">Close</button>`;
+        showModal('actionFormModal');
+    }
+    async function ensureSuperAdminAccess() {
+        if(userProfile?.role !== 'superadmin') return false;
+        if(Date.now() < superAdminAccessUntil) return true;
+        const password = await requestSuperAdminPassword();
+        if(!password) return false;
+        showLoader(true, 'Verifying superadmin access...');
+        try {
+            const { error } = await db.auth.signInWithPassword({ email: `${userProfile.username}${PSEUDO_DOMAIN}`, password });
+            if(error) throw error;
+            superAdminAccessUntil = Date.now() + SUPERADMIN_ACCESS_MS;
+            return true;
+        } catch (e) {
+            customAlert('Superadmin verification failed: ' + e.message, 'Access Denied', '🚫');
+            return false;
+        } finally {
+            showLoader(false);
+        }
+    }
+    function openActionForm(mod) {
+        if(!modulesWithAddAction.has(mod) || !isAdmin()) return;
+        const memOpts = wsMembersFull.map(m => `<option value="${m.profile.id}">${m.profile.full_name}</option>`).join('');
+        let html = '';
+        if(mod === 'Sprint Board') {
+            html = `<h3 class="neon" style="margin-top:0;">Create Sprint</h3><div class="flex-row"><input id="smN" placeholder="Name" style="flex:2;"><input id="smW" type="number" placeholder="Weeks" style="flex:1;"><input id="smP" placeholder="Phase" style="flex:2;"></div><div class="flex-row"><textarea id="smO" placeholder="Objectives" style="flex:1;height:80px;"></textarea><textarea id="smD" placeholder="Deliverables" style="flex:1;height:80px;"></textarea></div><div style="display:flex;gap:12px;margin-top:15px;"><button class="danger" onclick="hideModal('actionFormModal')">Cancel</button><button class="success" onclick="addSprint()">Create</button></div>`;
+        } else if(mod === 'Timeline') {
+            html = `<h3 class="neon" style="margin-top:0;">Add Task</h3><div class="flex-row"><input id="tlP" placeholder="Phase" style="flex:1;"><input id="tlT" placeholder="Task Name" style="flex:2;"><select id="tlO" style="flex:1;"><option value="">Team (Unassigned)</option>${memOpts}</select><input id="tlProg" type="number" min="0" max="100" placeholder="Prog %" style="flex:1;"></div><div class="flex-row"><input id="tlS" type="date" title="Start" style="flex:1;"><input id="tlD" type="date" title="Scheduled" style="flex:1;"><input id="tlE" type="date" title="Actual End" style="flex:1;"></div><div style="display:flex;gap:12px;margin-top:15px;"><button class="danger" onclick="hideModal('actionFormModal')">Cancel</button><button class="success" onclick="addTL()">Add Task</button></div>`;
+        } else if(mod === 'Funds') {
+            html = `<h3 class="neon" style="margin-top:0;">Record Transaction</h3><div class="flex-row"><select id="fT" style="flex:1;"><option value="in">Income (+)</option><option value="out">Expense (-)</option></select><input id="fD" type="date" style="flex:1;"><select id="fC" style="flex:2;"><option value="" disabled selected>Contributor...</option><option value="other">Other/Misc</option>${memOpts}</select></div><div class="flex-row"><input id="fDesc" placeholder="Description" style="flex:2;"><input id="fA" type="number" placeholder="Amt ₱" style="flex:1;"></div><div style="display:flex;gap:12px;margin-top:15px;"><button class="danger" onclick="hideModal('actionFormModal')">Cancel</button><button class="success" onclick="addFund()">Record</button></div>`;
+        } else if(mod === 'Calendar') {
+            html = `<h3 class="neon" style="margin-top:0;">Schedule Event</h3><div class="flex-row"><input id="ceT" placeholder="Event Title" style="flex:2;"><input id="ceD" type="date" style="flex:1;"><select id="ceTy" style="flex:1;"><option value="meeting">Meeting</option><option value="defense">Defense</option><option value="other">Other</option></select></div><div style="display:flex;gap:12px;margin-top:15px;"><button class="danger" onclick="hideModal('actionFormModal')">Cancel</button><button class="success" onclick="addCal()">Schedule</button></div>`;
+        } else if(mod === 'Resources' || mod === 'Links') {
+            html = `<h3 class="neon" style="margin-top:0;">Add Resource</h3><div class="flex-row"><input id="rT" placeholder="Title" style="flex:2;"><select id="rTy" style="flex:1;" onchange="document.getElementById('rU').style.display=this.value==='link'?'block':'none';document.getElementById('rF').style.display=this.value==='file'?'block':'none';"><option value="link">Web Link</option><option value="file">Upload File</option></select></div><div class="flex-row"><input id="rU" placeholder="URL" style="flex:2;"><input id="rF" type="file" style="flex:2;display:none;padding:9px;" accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,.zip"></div><div style="display:flex;gap:12px;margin-top:15px;"><button class="danger" onclick="hideModal('actionFormModal')">Cancel</button><button class="success" onclick="addRes()">Add</button></div>`;
+        } else if(mod === 'Gallery') {
+            html = `<h3 class="neon" style="margin-top:0;">Upload Gallery Item</h3><div class="flex-row"><input id="gFolder" placeholder="Folder Name" value="${currentGalleryFolder || ''}" style="flex:1;"><input id="gC" placeholder="Caption (Optional)" style="flex:1;"></div><div class="flex-row"><input id="gF" type="file" accept="image/*" multiple style="flex:2;padding:9px;"></div><div style="display:flex;gap:12px;margin-top:15px;"><button class="danger" onclick="hideModal('actionFormModal')">Cancel</button><button class="success" onclick="addGal()">Upload</button></div>`;
+        }
+        document.getElementById('actionFormContent').innerHTML = html;
+        showModal('actionFormModal');
+    }
 
     // --- UI HELPERS ---
     const customAlert = (m, t="System Alert", i="⚠️") => { document.getElementById('dialogTitle').innerText=t; document.getElementById('dialogMessage').innerText=m; document.getElementById('dialogIcon').innerText=i; document.getElementById('dialogButtons').innerHTML=`<button class="success" onclick="closeDialog()">Acknowledge</button>`; openDialog(); };
@@ -309,6 +607,9 @@
     const hideModal = (id) => { const m = document.getElementById(id); m.classList.remove('active'); setTimeout(()=>m.style.display='none',300); };
     const showLoader = (show, text="Processing...") => { document.getElementById('loadingText').innerText=text; document.getElementById('loadingOverlay').style.display=show?'flex':'none'; };
     
+    // Global Collapse Helper
+    window.toggleCol = (id) => { const el = document.getElementById(id); el.style.display = el.style.display === 'none' ? 'block' : 'none'; };
+
     const toggleAuth = () => { const l=document.getElementById('formLogin'), r=document.getElementById('formRegister'); document.querySelectorAll('#authScreen input').forEach(i=>i.value=''); if(l.style.display!=='none'){l.style.display='none';r.style.display='block';}else{l.style.display='block';r.style.display='none';} };
     const togglePwd = (id) => { const i=document.getElementById(id); i.type = i.type==='password'?'text':'password'; };
 
@@ -317,10 +618,27 @@
         if(userProfile.color_secondary) document.documentElement.style.setProperty('--secondary', userProfile.color_secondary);
         if(userProfile.color_accent) document.documentElement.style.setProperty('--accent', userProfile.color_accent);
     }
+    
     document.getElementById('p_color_sec').addEventListener('input', e => document.getElementById('p_color_sec_txt').value = e.target.value.toUpperCase());
     document.getElementById('p_color_acc').addEventListener('input', e => document.getElementById('p_color_acc_txt').value = e.target.value.toUpperCase());
     
-    async function uploadToCloudinary(file) { const fd=new FormData(); fd.append("file",file); fd.append("upload_preset",UPLOAD_PRESET); const res=await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`,{method:"POST",body:fd}); const data=await res.json(); if(!data.secure_url) throw new Error("Cloudinary rejected upload."); return data.secure_url; }
+    // Reverse syncing hex input to color picker
+    document.getElementById('p_color_sec_txt').addEventListener('input', e => { if(/^#[0-9A-F]{6}$/i.test(e.target.value)) document.getElementById('p_color_sec').value = e.target.value; });
+    document.getElementById('p_color_acc_txt').addEventListener('input', e => { if(/^#[0-9A-F]{6}$/i.test(e.target.value)) document.getElementById('p_color_acc').value = e.target.value; });
+
+    async function uploadToCloudinary(file) { 
+        try {
+            const fd=new FormData(); fd.append("file",file); fd.append("upload_preset",UPLOAD_PRESET); 
+            const res=await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`,{method:"POST",body:fd}); 
+            const data=await res.json(); 
+            if(!data.secure_url) throw new Error("Cloudinary rejected upload."); 
+            return data.secure_url; 
+        } catch(e) {
+            customAlert("Upload failed: " + e.message);
+            throw e; 
+        }
+    }
+    
     const renderHeaderAvatar = (url) => { document.getElementById('headerAvatar').innerHTML = url ? `<img src="${url}">` : svgs["User"]; };
 
     // --- NOTIFICATIONS SYSTEM ---
@@ -330,7 +648,6 @@
         const { data } = await db.from('notifications').select('*').eq('user_id', sessionUser.id).order('created_at', { ascending: false }).limit(20);
         renderNotifications(data || []);
         
-        // Supabase Realtime Listener
         db.channel('custom-all-channel')
           .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'notifications', filter: `user_id=eq.${sessionUser.id}` }, payload => {
               unreadNotifs++; updateBell();
@@ -356,6 +673,13 @@
         }
     }
     async function pushNotif(uid, msg) { await db.from('notifications').insert([{ user_id: uid, message: msg }]); }
+
+    function notifyWorkspace(msg) {
+        if(!wsMembersFull || !currentWorkspace) return;
+        wsMembersFull.forEach(m => {
+            if(m.user_id !== sessionUser.id) pushNotif(m.user_id, msg);
+        });
+    }
 
     // --- AUTHENTICATION ---
     async function checkSession() {
@@ -394,61 +718,137 @@
         if (u.includes(' ') || u.includes('@')) return customAlert("Username cannot contain spaces or special characters.");
         showLoader(true, "Provisioning account...");
         try {
-            let avatarUrl = file.files.length ? await uploadToCloudinary(file.files[0]) : null;
+            let avatarUrl = null;
+            if(file.files.length) {
+                avatarUrl = await uploadToCloudinary(file.files[0]);
+            }
             const { data, error } = await db.auth.signUp({ email: `${u}${PSEUDO_DOMAIN}`, password: p });
             if(error) throw error; if(data?.user?.identities?.length===0) return customAlert("Username taken.");
-            if(data.user) { await db.from('profiles').insert([{ id: data.user.id, full_name: fn, username: u, role: u==='brenduling'?'superadmin':'user', avatar_url: avatarUrl }]); customAlert("Initialization successful.", "Welcome", "✅"); toggleAuth(); }
+            if(data.user) { 
+                const { error: profErr } = await db.from('profiles').insert([{ id: data.user.id, full_name: fn, username: u, role: u==='brenduling'?'superadmin':'user', avatar_url: avatarUrl }]); 
+                if(profErr) throw profErr;
+                customAlert("Initialization successful.", "Welcome", "✅"); toggleAuth(); 
+            }
         } catch(err) { customAlert("Registration Error: " + err.message); } finally { showLoader(false); }
     }
 
-    function confirmLogout() { customConfirm("Sever connection to ecosystem?", async () => { showLoader(true); await db.auth.signOut(); sessionUser=null; userProfile=null; currentWorkspace=null; checkSession(); }, "Confirm"); }
+    function confirmLogout() { customConfirm("Sever connection to ecosystem?", async () => { showLoader(true); await db.auth.signOut(); sessionUser=null; userProfile=null; currentWorkspace=null; isViewerMode=false; checkSession(); }, "Confirm"); }
 
     async function handleAvatarUpdate(input) {
         if(!input.files.length) return; showLoader(true, "Updating Biometrics...");
-        try { const url = await uploadToCloudinary(input.files[0]); await db.from('profiles').update({ avatar_url: url }).eq('id', sessionUser.id); userProfile.avatar_url = url; renderHeaderAvatar(url); loadLobby(); customAlert("Photo updated.", "Success", "✅"); } 
+        try { const url = await uploadToCloudinary(input.files[0]); const {error} = await db.from('profiles').update({ avatar_url: url }).eq('id', sessionUser.id); if(error) throw error; userProfile.avatar_url = url; renderHeaderAvatar(url); loadLobby(); customAlert("Photo updated.", "Success", "✅"); } 
         catch(err) { customAlert(err.message); } finally { showLoader(false); input.value = ""; }
     }
 
     // --- PROFILE SETTINGS ---
     function openProfileSettings() {
+        document.getElementById('p_fullname').value = userProfile.full_name || '';
+        document.getElementById('p_username').value = userProfile.username || '';
         document.getElementById('p_bio').value = userProfile.bio || '';
         document.getElementById('p_sticker').value = userProfile.sticker || '👤';
         document.getElementById('p_color_sec').value = userProfile.color_secondary || '#22D3EE';
         document.getElementById('p_color_sec_txt').value = userProfile.color_secondary || '#22D3EE';
         document.getElementById('p_color_acc').value = userProfile.color_accent || '#8B5CF6';
         document.getElementById('p_color_acc_txt').value = userProfile.color_accent || '#8B5CF6';
+        
+        // Contact
+        document.getElementById('p_email').value = userProfile.contact_email || '';
+        document.getElementById('p_phone').value = userProfile.phone || '';
+        document.getElementById('p_messenger').value = userProfile.messenger || '';
+        document.getElementById('p_github').value = userProfile.github || '';
+
         showModal('profileSettingsModal');
     }
 
     async function saveProfileSettings() {
-        showLoader(true, "Saving preferences...");
+        const fn = document.getElementById('p_fullname').value.trim();
+        const un = document.getElementById('p_username').value.trim().toLowerCase();
         const bio = document.getElementById('p_bio').value, sticker = document.getElementById('p_sticker').value, sec = document.getElementById('p_color_sec').value, acc = document.getElementById('p_color_acc').value;
+        const c_em = document.getElementById('p_email').value, c_ph = document.getElementById('p_phone').value, c_msg = document.getElementById('p_messenger').value, c_git = document.getElementById('p_github').value;
+
+        if(!fn || !un) return customAlert("Name and Username cannot be empty.");
+        if (un.includes(' ') || un.includes('@')) return customAlert("Username cannot contain spaces or special characters.");
+
+        showLoader(true, "Saving preferences...");
         try {
-            await db.from('profiles').update({ bio, sticker, color_secondary: sec, color_accent: acc }).eq('id', sessionUser.id);
-            userProfile.bio = bio; userProfile.sticker = sticker; userProfile.color_secondary = sec; userProfile.color_accent = acc;
+            if (un !== userProfile.username) {
+                const { error: authErr } = await db.auth.updateUser({ email: `${un}${PSEUDO_DOMAIN}` });
+                if(authErr) throw authErr;
+            }
+
+            const {error} = await db.from('profiles').update({ full_name: fn, username: un, bio, sticker, color_secondary: sec, color_accent: acc, contact_email: c_em, phone: c_ph, messenger: c_msg, github: c_git }).eq('id', sessionUser.id);
+            if(error) throw error;
+            
+            userProfile.full_name = fn; userProfile.username = un; userProfile.bio = bio; userProfile.sticker = sticker; userProfile.color_secondary = sec; userProfile.color_accent = acc;
+            userProfile.contact_email = c_em; userProfile.phone = c_ph; userProfile.messenger = c_msg; userProfile.github = c_git;
+
             applyUserColors(); hideModal('profileSettingsModal'); loadLobby();
         } catch(e) { customAlert(e.message); } finally { showLoader(false); }
     }
 
     // --- LOBBY VIEW ---
     async function loadLobby() {
-        currentWorkspace = null; document.getElementById('viewTitle').innerText = `@${userProfile.username}`; document.getElementById('bottomNav').innerHTML = '';
+        currentWorkspace = null; isViewerMode = false; document.getElementById('viewToggleContainer').innerHTML = '';
+        document.getElementById('viewTitle').innerText = `@${userProfile.username}`; document.getElementById('bottomNav').innerHTML = '';
+        document.getElementById('moduleFab').style.display = 'none';
         try {
-            const { data: wm } = await db.from('workspace_members').select('workspace_id, role, status').eq('user_id', sessionUser.id);
+            const { data: wm, error: wmErr } = await db.from('workspace_members').select('workspace_id, role, status').eq('user_id', sessionUser.id);
+            if(wmErr) throw wmErr;
             myWorkspaces = [];
             if(wm && wm.length > 0) {
-                const { data: wsData } = await db.from('workspaces').select('*').in('id', wm.map(w=>w.workspace_id));
+                const { data: wsData, error: wsErr } = await db.from('workspaces').select('*').in('id', wm.map(w=>w.workspace_id));
+                if(wsErr) throw wsErr;
                 myWorkspaces = wm.map(m => ({ ...m, workspaces: wsData.find(w=>w.id===m.workspace_id) })).filter(w=>w.workspaces);
             }
+            const { data: profilesData } = await db.from('profiles').select('id, username, full_name, avatar_url, sticker');
+            profileDirectory = profilesData || [];
+            await loadPersonalLobbyItems();
             renderLobbyUI(); populateFeatureCheckboxes('featureList');
         } catch(err) { document.getElementById('contentArea').innerHTML = `<div class="glass card danger"><h3>Connection Failure</h3><p>${err.message}</p></div>`; }
     }
 
     function renderLobbyUI() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const personalTasks = personalLobbyItems.filter(item => item.kind === 'task');
+        const finishedTasks = personalTasks.filter(item => Number(item.progress || 0) >= 100);
+        const upcomingTasks = personalTasks.filter(item => {
+            if(Number(item.progress || 0) >= 100 || !item.date) return false;
+            const targetDate = new Date(item.date);
+            targetDate.setHours(0, 0, 0, 0);
+            return targetDate >= today;
+        });
+        const unfinishedTasks = personalTasks.filter(item => Number(item.progress || 0) < 100);
+        const taskGroups = [
+            { id: 'ptmUpcoming', label: 'Upcoming Schedules', items: upcomingTasks, active: true, empty: 'No upcoming schedules.' },
+            { id: 'ptmUnfinished', label: 'Unfinished Task', items: unfinishedTasks, active: false, empty: 'No unfinished task.' },
+            { id: 'ptmFinished', label: 'Finished Task', items: finishedTasks, active: false, empty: 'No finished task yet.' }
+        ];
+        const renderPersonalTaskCard = (item) => `
+            <div onclick="enterWorkspace('${item.workspace_id}')" style="padding:12px;background:var(--card-bg);border:1px solid var(--glass-border);border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;">
+                <div>
+                    <div style="font-weight:bold; color:var(--text);">${escapeHtml(item.title)}</div>
+                    <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">${escapeHtml(item.workspace_name)} • ${escapeHtml(item.date || 'No date')}</div>
+                </div>
+                <div style="text-align:right; font-size:12px;">
+                    <div style="color:${Number(item.progress || 0) >= 100 ? 'var(--success)' : 'var(--secondary)'}; font-weight:bold;">${Number(item.progress || 0)}%</div>
+                </div>
+            </div>
+        `;
+        const personalItemsHtml = taskGroups.map(group => `
+            <div id="${group.id}" style="display:${group.active ? 'flex' : 'none'};flex-direction:column;gap:10px;">
+                ${group.items.length ? group.items.map(renderPersonalTaskCard).join('') : `<p style="font-size:13px;color:var(--text-muted);text-align:center;margin:25px 0;">${group.empty}</p>`}
+            </div>
+        `).join('');
+        const taskNavHtml = `
+            <div class="tab-row" style="margin:12px 0 0 0;">
+                ${taskGroups.map(group => `<button class="tab-btn ${group.active ? 'active' : ''}" onclick="switchPersonalTaskTab('${group.id}', this)">${group.label} (${group.items.length})</button>`).join('')}
+            </div>
+        `;
         let html = `<div class="grid-2"><div class="glass card" style="text-align:center; position:relative;"><h3 class="neon" style="margin-top:0;font-size:24px;">Identification</h3>`;
         html += `<button class="icon-btn" style="position:absolute; top:15px; right:15px; background:transparent; border:none; color:var(--text); font-size:18px; padding:0; width:auto;" onclick="openProfileSettings()" title="Settings">⚙️</button>`;
-        html += `<div style="display:flex; flex-direction:column; align-items:center; margin-bottom:20px;"><div style="position:relative;"><div class="avatar-wrapper" style="width:90px;height:90px;border-color:var(--secondary);">${userProfile.avatar_url ? `<img src="${userProfile.avatar_url}">` : svgs["User"]}</div><div style="position:absolute; bottom:-5px; right:-5px; font-size:24px; background:var(--bg-1); border-radius:50%; width:32px; height:32px; display:flex; justify-content:center; align-items:center; border:2px solid var(--glass-border);">${userProfile.sticker||'👤'}</div></div><label style="margin-top:16px;font-size:11px;color:var(--secondary);cursor:pointer;padding:6px 12px;border:1px dashed var(--glass-border);border-radius:6px;">Update Biometrics<input type="file" accept="image/*" style="display:none;" onchange="handleAvatarUpdate(this)"></label></div><div style="background:var(--card-bg);padding:15px;border-radius:12px;border:1px solid var(--glass-border);"><div style="font-size:18px;font-weight:bold;">${userProfile.full_name}</div><div style="font-size:14px;color:var(--secondary);margin-top:6px;">@${userProfile.username}</div>${userProfile.bio?`<div style="font-size:12px; color:var(--text-muted); margin-top:8px; font-style:italic;">"${userProfile.bio}"</div>`:''}<div style="font-size:11px;color:var(--text-muted);margin-top:10px;text-transform:uppercase;font-weight:bold;">Access: ${userProfile.role}</div></div><div style="display:flex;gap:10px;margin-top:20px;"><button onclick="showModal('createWsModal')" style="flex:1;">+ Provision Workspace</button></div>${userProfile.role==='superadmin'?`<button class="success" style="margin-top:10px;" onclick="loadSuperAdmin()">👑 Super Admin Command</button>`:''}</div>`;
-        html += `<div class="glass card" style="display:flex;flex-direction:column;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;"><h3 class="neon" style="margin:0;font-size:22px;">Active Environments</h3><span style="font-size:12px;color:var(--text-muted);font-weight:bold;background:rgba(0,0,0,0.3);padding:4px 8px;border-radius:10px;">${myWorkspaces.length}/10</span></div><div style="flex:1;max-height:400px;overflow-y:auto;padding-right:5px;">`;
+        html += `<div style="display:flex; flex-direction:column; align-items:center; margin-bottom:20px;"><div style="position:relative;"><div class="avatar-wrapper" style="width:90px;height:90px;border-color:var(--secondary);">${userProfile.avatar_url ? `<img src="${userProfile.avatar_url}">` : svgs["User"]}</div><div style="position:absolute; bottom:-5px; right:-5px; font-size:24px; background:var(--bg-1); border-radius:50%; width:32px; height:32px; display:flex; justify-content:center; align-items:center; border:2px solid var(--glass-border);">${userProfile.sticker||'👤'}</div></div><label style="margin-top:16px;font-size:11px;color:var(--secondary);cursor:pointer;padding:6px 12px;border:1px dashed var(--glass-border);border-radius:6px;">Update Biometrics<input type="file" accept="image/*" style="display:none;" onchange="handleAvatarUpdate(this)"></label></div><div style="background:var(--card-bg);padding:15px;border-radius:12px;border:1px solid var(--glass-border);width:100%;box-sizing:border-box;"><div style="font-size:18px;font-weight:bold;">${userProfile.full_name}</div><div style="font-size:14px;color:var(--secondary);margin-top:6px;">@${userProfile.username}</div>${userProfile.bio?`<div style="font-size:12px; color:var(--text-muted); margin-top:8px; font-style:italic;">"${userProfile.bio}"</div>`:''}<div style="font-size:11px;color:var(--text-muted);margin-top:10px;text-transform:uppercase;font-weight:bold;">Access: ${userProfile.role}</div></div><div style="display:flex;gap:10px;margin-top:20px;width:100%;"><button onclick="showModal('createWsModal')" style="flex:1;">+ Provision Workspace</button></div><div style="display:flex;gap:10px;margin-top:10px;width:100%;"><button class="warning" style="flex:1;" onclick="showProfilePins()">Pinned Items</button></div>${userProfile.role==='superadmin'?`<button class="success" style="margin-top:10px;" onclick="loadSuperAdmin()">👑 Super Admin Command</button>`:''}</div>`;
+        html += `<div class="glass card" style="display:flex;flex-direction:column;"><div class="collapse-header" onclick="toggleCol('personalItems')"><h3 class="neon" style="margin:0;font-size:22px;">Personal Task Manager</h3><div style="display:flex; align-items:center; gap:10px;"><span style="font-size:12px;color:var(--text-muted);font-weight:bold;background:rgba(0,0,0,0.3);padding:4px 8px;border-radius:10px;">${personalTasks.length}</span><span>▼</span></div></div>${taskNavHtml}<div id="personalItems" style="max-height:260px;overflow-y:auto;padding-right:5px; margin-top:10px;">${personalItemsHtml}</div><div class="collapse-header" onclick="toggleCol('envList')" style="margin-top:16px;"><h3 class="neon" style="margin:0;font-size:22px;">Active Environments</h3><div style="display:flex; align-items:center; gap:10px;"><span style="font-size:12px;color:var(--text-muted);font-weight:bold;background:rgba(0,0,0,0.3);padding:4px 8px;border-radius:10px;">${myWorkspaces.length}/10</span><span>▼</span></div></div><div id="envList" style="flex:1;max-height:400px;overflow-y:auto;padding-right:5px; margin-top:10px;">`;
         if(!myWorkspaces.length) html += `<p style="font-size:13px;color:var(--text-muted);text-align:center;margin-top:40px;">No environments detected.</p>`;
         else myWorkspaces.forEach(ws => {
             const w = ws.workspaces, av = w.photo_url ? `<img src="${w.photo_url}">` : w.name.charAt(0).toUpperCase();
@@ -458,23 +858,59 @@
         });
         document.getElementById('contentArea').innerHTML = html + `</div></div></div>`;
     }
+    window.switchPersonalTaskTab = (targetId, btn) => {
+        ['ptmUpcoming', 'ptmUnfinished', 'ptmFinished'].forEach(id => {
+            const el = document.getElementById(id);
+            if(el) el.style.display = id === targetId ? 'flex' : 'none';
+        });
+        btn.closest('.tab-row').querySelectorAll('.tab-btn').forEach(tab => tab.classList.remove('active'));
+        btn.classList.add('active');
+    };
+
+    // Updated toggle logic to hide/show Fund Settings
+    window.handleFeatureToggle = (cb) => {
+        limitFeatures(cb);
+        const modalContent = cb.closest('.modal-content');
+        const overlay = cb.closest('.modal-overlay');
+        const fundUI = modalContent.querySelector('.fund-settings-container');
+        if(fundUI) fundUI.style.display = overlay?.id === 'editWsModal' && Array.from(modalContent.querySelectorAll('.ws-feature-cb:checked')).some(c => c.value === 'Funds') ? 'block' : 'none';
+    }
 
     function populateFeatureCheckboxes(containerId = 'featureList') { 
-        document.getElementById(containerId).innerHTML = availableFeatures.map(f=>`<label class="feature-toggle"><input type="checkbox" value="${f}" class="ws-feature-cb" onchange="limitFeatures(this)"> <span style="display:flex;align-items:center;gap:8px;font-size:14px;"><span style="width:18px;height:18px;color:var(--secondary);">${svgs[f]||'⚡'}</span> ${f}</span></label>`).join(''); 
+        document.getElementById(containerId).innerHTML = availableFeatures.map(f=>`<label class="feature-toggle"><input type="checkbox" value="${f}" class="ws-feature-cb" onchange="handleFeatureToggle(this)"> <span style="display:flex;align-items:center;gap:8px;font-size:14px;"><span style="width:18px;height:18px;color:var(--secondary);">${svgs[f]||'⚡'}</span> ${f}</span></label>`).join(''); 
     }
-    function limitFeatures(cb) { if(cb.closest('.modal-content').querySelectorAll('.ws-feature-cb:checked').length > 6) { customAlert("Max 6 active modules."); cb.checked=false; } }
+    
+    function limitFeatures(cb) { return cb; }
 
     async function submitWorkspace() {
         if(myWorkspaces.length >= 10) return customAlert("Environment limit reached (10).");
         const n = document.getElementById('wsName').value.trim(), f = Array.from(document.getElementById('createWsModal').querySelectorAll('.ws-feature-cb:checked')).map(cb=>cb.value), file = document.getElementById('wsPhotoFile');
+        
         if(!n || !f.length) return customAlert("Designation and at least 1 module required.");
         showLoader(true, "Allocating Server Space...");
         try {
             const url = file.files.length ? await uploadToCloudinary(file.files[0]) : null;
             const id = n.replace(/[^a-zA-Z0-9]/g,'').toLowerCase() + '-' + Math.random().toString(36).substring(2,6);
-            await db.from('workspaces').insert([{ id, name: n, photo_url: url, features: f, status: 'pending', created_by: sessionUser.id }]);
-            await db.from('workspace_members').insert([{ workspace_id: id, user_id: sessionUser.id, role: 'admin', status: 'active', display_role: 'Creator' }]);
-            customAlert("Environment provisioned. Awaiting authorization.", "Success", "✅"); hideModal('createWsModal'); loadLobby();
+            
+            const fundsEnabled = f.includes('Funds');
+            const {error: wsErr} = await db.from('workspaces').insert([{ id, name: n, photo_url: url, features: f, status: 'pending', created_by: sessionUser.id, fund_amount: fundsEnabled ? 50 : null, fund_frequency: fundsEnabled ? 'Weekly' : null }]);
+            if(wsErr) throw wsErr;
+            
+            const {error: memErr} = await db.from('workspace_members').insert([{ workspace_id: id, user_id: sessionUser.id, role: 'admin', status: 'active', display_role: 'Creator' }]);
+            if(memErr) throw memErr;
+            
+            // Global Broadcast
+            const {data: allP} = await db.from('profiles').select('id');
+            const msg = `<span style="cursor:pointer; color:var(--secondary); font-weight:bold;" onclick="showModal('searchModal'); document.getElementById('searchInput').value='${n}'; executeSearch();">🚀 @${userProfile.username} launched env: ${n}</span>`;
+            if(allP) { allP.forEach(p => { if(p.id !== sessionUser.id) pushNotif(p.id, msg); }); }
+
+            customAlert("Environment provisioned. Awaiting authorization.", "Success", "✅"); 
+            hideModal('createWsModal'); 
+            document.getElementById('wsName').value = '';
+            document.getElementById('wsPhotoFile').value = '';
+            document.querySelectorAll('.ws-feature-cb').forEach(cb => cb.checked = false);
+            if(document.getElementById('createFundSettings')) document.getElementById('createFundSettings').style.display = 'none';
+            await loadLobby();
         } catch(err) { customAlert(err.message); } finally { showLoader(false); }
     }
 
@@ -482,42 +918,106 @@
     let currentModule = '';
     const buildNav = (l,i) => `<div class="nav-item ${l===currentModule?'active':''}" onclick="renderModule('${l}')">${svgs[i]||'⚡'}<span class="nav-text">${l}</span></div>`;
     const fetchWSData = async (table) => { const {data,error} = await db.from(table).select('*').eq('workspace_id', currentWorkspace.workspace_id); if(error) throw error; return data||[]; };
-    const isAdmin = () => currentWorkspace.role === 'admin' || userProfile.role === 'superadmin';
+    
+    // View As Viewer Override
+    const isAdmin = () => {
+        if (isViewerMode) return false;
+        return currentWorkspace && (currentWorkspace.role === 'admin' || userProfile.role === 'superadmin');
+    };
+
+    window.toggleViewerMode = () => { isViewerMode = !isViewerMode; renderModule(currentModule); };
 
     async function enterWorkspace(wsId) {
         currentWorkspace = myWorkspaces.find(w=>w.workspace_id===wsId);
         if(!currentWorkspace) return; document.getElementById('viewTitle').innerText = currentWorkspace.workspaces.name;
+        isViewerMode = false;
         
-        const {data:mems} = await db.from('workspace_members').select('user_id, role, status, display_role').eq('workspace_id', wsId);
-        const {data:profs} = await db.from('profiles').select('id, full_name, username, avatar_url, sticker').in('id', mems.map(m=>m.user_id));
-        wsMembersFull = mems.map(m=>({ ...m, profile: profs.find(p=>p.id===m.user_id) })).filter(m=>m.profile);
-        
-        renderModule(currentWorkspace.workspaces.features[0] || 'Members');
+        showLoader(true, "Entering Environment...");
+        try {
+            const {data:mems, error:memErr} = await db.from('workspace_members').select('user_id, role, status, display_role').eq('workspace_id', wsId);
+            if(memErr) throw memErr;
+            if(mems) {
+                const {data:profs, error:profErr} = await db.from('profiles').select('id, full_name, username, avatar_url, sticker, bio, contact_email, phone, messenger, github').in('id', mems.map(m=>m.user_id));
+                if(profErr) throw profErr;
+                wsMembersFull = mems.map(m=>({ ...m, profile: profs.find(p=>p.id===m.user_id) })).filter(m=>m.profile);
+            }
+            renderModule(currentWorkspace.workspaces.features[0] || 'Members');
+        } catch(e) { customAlert(e.message); } finally { showLoader(false); }
     }
+
+    // New: Allow Super Admin to enter any workspace from the registry
+    window.enterWorkspaceAsSuperAdmin = async (wsId) => {
+        if(!(await ensureSuperAdminAccess())) return;
+        showLoader(true, "Bypassing Security...");
+        try {
+            const {data: wData, error: wErr} = await db.from('workspaces').select('*').eq('id', wsId).single();
+            if(wErr) throw wErr;
+            if(!wData) throw new Error("Workspace not found.");
+            
+            // Construct a fake membership for the super admin
+            currentWorkspace = {
+                workspace_id: wsId,
+                role: 'admin',
+                status: 'active',
+                display_role: 'Super Admin',
+                workspaces: wData
+            };
+            isViewerMode = false;
+            document.getElementById('viewTitle').innerText = currentWorkspace.workspaces.name;
+            
+            const {data:mems} = await db.from('workspace_members').select('user_id, role, status, display_role').eq('workspace_id', wsId);
+            const {data:profs} = await db.from('profiles').select('id, full_name, username, avatar_url, sticker, bio, contact_email, phone, messenger, github').in('id', (mems||[]).map(m=>m.user_id));
+            wsMembersFull = (mems||[]).map(m=>({ ...m, profile: profs.find(p=>p.id===m.user_id) })).filter(m=>m.profile);
+            
+            renderModule(currentWorkspace.workspaces.features[0] || 'Members');
+        } catch (e) {
+            customAlert(e.message);
+        } finally {
+            showLoader(false);
+        }
+    };
 
     function renderModule(mod) {
         currentModule = mod; if(mod==='Lobby') return loadLobby();
         document.getElementById('bottomNav').innerHTML = buildNav('Lobby','Lobby') + currentWorkspace.workspaces.features.map(f=>buildNav(f,f)).join('') + buildNav('Members','Members');
         const c = document.getElementById('contentArea'); c.innerHTML = '';
+        renderModuleFab(mod);
         
+        // Viewer Toggle Header
+        const vt = document.getElementById('viewToggleContainer');
+        if (currentWorkspace.role === 'admin' || userProfile.role === 'superadmin') {
+            vt.innerHTML = `<button class="icon-btn" onclick="toggleViewerMode()" style="background:transparent; border:1px solid var(--glass-border); color:var(--text); padding:6px 12px; border-radius:6px; font-size:11px; width:auto; margin:0; transition:0.2s;">${isViewerMode ? '👨‍💻 Return to Admin' : '👁️ View as Viewer'}</button>`;
+        } else { vt.innerHTML = ''; }
+
         let headerActions = '';
         if (isAdmin() && mod === currentWorkspace.workspaces.features[0]) {
-            headerActions = `<button class="icon-btn" onclick="openEditWorkspace()" style="background:transparent; border:1px solid var(--glass-border); color:var(--text); padding:6px 12px; border-radius:6px; font-size:11px; width:auto; margin:0;">⚙️ Edit Environment</button>`;
+            headerActions = `<button class="icon-btn" onclick="openEditWorkspace()" style="background:var(--secondary); border:none; color:#000; padding:6px 12px; border-radius:6px; font-size:11px; font-weight:bold; width:auto; margin:0;">⚙️ Settings</button>`;
         }
 
         switch(mod) {
             case 'Members': return modMembers(c); case 'Dashboard': return modDash(c, headerActions); case 'Sprint Board': return modSprint(c); 
             case 'Timeline': return modTimeline(c); case 'Funds': return modFunds(c); case 'Calendar': return modCalendar(c); 
-            case 'Resources': return modResources(c); case 'Gallery': return modGallery(c);
+            case 'Resources': 
+            case 'Links': return modResources(c); 
+            case 'Gallery': return modGallery(c);
             default: c.innerHTML=`<div class="glass card" style="text-align:center;padding:50px;"><h2 class="neon">${mod}</h2><p>Module Online</p></div>`;
         }
     }
 
     function openEditWorkspace() {
         document.getElementById('e_wsName').value = currentWorkspace.workspaces.name;
+        if(document.getElementById('e_wsFundAmt')) document.getElementById('e_wsFundAmt').value = currentWorkspace.workspaces.fund_amount || 50;
+        if(document.getElementById('e_wsFundFreq')) document.getElementById('e_wsFundFreq').value = currentWorkspace.workspaces.fund_frequency || 'Weekly';
+        
         populateFeatureCheckboxes('e_featureList');
         const cbs = document.getElementById('editWsModal').querySelectorAll('.ws-feature-cb');
         cbs.forEach(cb => { if(currentWorkspace.workspaces.features.includes(cb.value)) cb.checked = true; });
+        
+        // Check initial state for funds UI
+        if(document.getElementById('editFundSettings')) {
+            document.getElementById('editFundSettings').style.display = currentWorkspace.workspaces.features.includes('Funds') ? 'block' : 'none';
+        }
+
         showModal('editWsModal');
     }
 
@@ -525,17 +1025,193 @@
         const n = document.getElementById('e_wsName').value.trim();
         const f = Array.from(document.getElementById('editWsModal').querySelectorAll('.ws-feature-cb:checked')).map(cb=>cb.value);
         const file = document.getElementById('e_wsPhotoFile');
+        const fAmt = document.getElementById('e_wsFundAmt') ? document.getElementById('e_wsFundAmt').value : 50;
+        const fFreq = document.getElementById('e_wsFundFreq') ? document.getElementById('e_wsFundFreq').value : 'Weekly';
+
         if(!n || !f.length) return customAlert("Name and at least 1 module required.");
         
         showLoader(true, "Updating Architecture...");
         try {
-            let updates = { name: n, features: f };
+            const fundsEnabled = f.includes('Funds');
+            let updates = { name: n, features: f, fund_amount: fundsEnabled ? fAmt : null, fund_frequency: fundsEnabled ? fFreq : null };
             if(file.files.length) updates.photo_url = await uploadToCloudinary(file.files[0]);
-            await db.from('workspaces').update(updates).eq('id', currentWorkspace.workspace_id);
+            
+            const {error} = await db.from('workspaces').update(updates).eq('id', currentWorkspace.workspace_id);
+            if(error) throw error;
+            
             currentWorkspace.workspaces.name = n; currentWorkspace.workspaces.features = f;
+            currentWorkspace.workspaces.fund_amount = updates.fund_amount; currentWorkspace.workspaces.fund_frequency = updates.fund_frequency;
             if(updates.photo_url) currentWorkspace.workspaces.photo_url = updates.photo_url;
             hideModal('editWsModal'); enterWorkspace(currentWorkspace.workspace_id);
         } catch(e) { customAlert(e.message); } finally { showLoader(false); }
+    }
+
+    async function deleteWorkspace() {
+        customConfirm("Delete this entire workspace? This action is permanent.", async () => {
+            showLoader(true, "Purging Environment...");
+            try {
+                const {error} = await db.from('workspaces').delete().eq('id', currentWorkspace.workspace_id);
+                if(error) throw error;
+                hideModal('editWsModal'); loadLobby(); customAlert("Environment purged.");
+            } catch(e) { customAlert(e.message); } finally { showLoader(false); }
+        });
+    }
+
+    // --- DOSSIER (MEMBER MODAL FOR WORKSPACE AND GLOBAL) ---
+    async function openWorkspaceUserModal(targetId) {
+        hideModal('searchModal');
+        showLoader(true, "Loading Dossier...");
+        try {
+            const { data: prof, error: pErr } = await db.from('profiles').select('*').eq('id', targetId).single();
+            if(pErr) throw pErr;
+
+            const { data: wm } = await db.from('workspace_members').select('workspace_id, role, status, display_role').eq('user_id', targetId);
+            const targetMems = wm || [];
+
+            const activeMems = targetMems.filter(m => m.status === 'active');
+            let targetWs = [];
+            if(activeMems.length > 0) {
+                const { data: wsData } = await db.from('workspaces').select('id, name, photo_url').in('id', activeMems.map(w=>w.workspace_id)).eq('status', 'active');
+                targetWs = wsData || [];
+            }
+
+            let wsRoleObj = null;
+            if (currentWorkspace) wsRoleObj = targetMems.find(w => w.workspace_id === currentWorkspace.workspace_id && w.status === 'active');
+
+            const av = prof.avatar_url ? `<img src="${prof.avatar_url}">` : svgs["User"];
+            const sticker = prof.sticker || '👤';
+            
+            let html = `
+                <div style="display:flex; justify-content:flex-start; margin-bottom: 10px;">
+                    <button style="background:transparent; border:none; color:var(--text-muted); width:auto; padding:0; font-size:14px; display:flex; align-items:center; gap:5px;" onclick="hideModal('userProfileModal'); showModal('searchModal');">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Back to Search
+                    </button>
+                </div>
+                <div style="text-align:center; padding: 10px 0 20px 0; border-bottom: 1px solid var(--glass-border);">
+                    <div style="position:relative; display:inline-block; margin-bottom:15px;">
+                        <div class="avatar-wrapper" style="width:80px; height:80px; border-color:var(--secondary);">${av}</div>
+                        <div style="position:absolute; bottom:-5px; right:-5px; font-size:20px; background:var(--bg-1); border-radius:50%; border:2px solid var(--glass-border); width:28px; height:28px; display:flex; justify-content:center; align-items:center;">${sticker}</div>
+                    </div>
+                    <h2 style="margin:0; font-size:22px; color:var(--text);">${prof.full_name}</h2>
+                    <div style="color:var(--secondary); font-size:14px; margin-top:4px;">@${prof.username}</div>
+                    ${wsRoleObj ? `<div style="font-size:12px; color:var(--text-muted); margin-top:8px; font-weight:bold;">${wsRoleObj.display_role} <span style="font-weight:normal;">(${wsRoleObj.role})</span></div>` : ''}
+                    ${prof.bio ? `<p style="font-size:12px; color:var(--text-muted); font-style:italic; margin:15px 0 0 0;">"${prof.bio}"</p>` : ''}
+                    
+                    <div style="display:flex; justify-content:center; gap:10px; margin-top:15px;">
+                        ${prof.contact_email ? `<a href="mailto:${prof.contact_email}" style="font-size:18px; text-decoration:none;" title="Email">✉️</a>` : ''}
+                        ${prof.messenger ? `<a href="${prof.messenger}" target="_blank" style="font-size:18px; text-decoration:none;" title="Messenger">💬</a>` : ''}
+                        ${prof.github ? `<a href="${prof.github}" target="_blank" style="font-size:18px; text-decoration:none;" title="GitHub">🐙</a>` : ''}
+                        ${prof.phone ? `<a href="tel:${prof.phone}" style="font-size:18px; text-decoration:none;" title="Call">📞</a>` : ''}
+                    </div>
+                </div>
+            `;
+
+            if (currentWorkspace && wsRoleObj) {
+                const [ {data: tasks}, {data: funds} ] = await Promise.all([
+                    db.from('timeline').select('title, sched_date, progress').eq('workspace_id', currentWorkspace.workspace_id).eq('owner', targetId),
+                    db.from('funds').select('amount').eq('workspace_id', currentWorkspace.workspace_id).eq('contributor_id', targetId).eq('type', 'in')
+                ]);
+
+                const tList = tasks || []; const fList = funds || [];
+                const mDone = tList.filter(t => t.progress === 100).length;
+                const mFunds = fList.reduce((a, b) => a + Number(b.amount), 0);
+
+                html += `
+                <div style="padding: 20px 0;">
+                    <div style="background:var(--card-bg); padding:15px; border-radius:8px; border:1px solid var(--glass-border); margin-bottom: 15px;">
+                        <h4 style="margin:0 0 10px 0; color:var(--accent);">Environment Stats</h4>
+                        <div style="display:flex; justify-content:space-around; font-size:14px;">
+                            <div style="text-align:center;"><div style="color:var(--text-muted); font-size:11px;">Contributions</div><strong>₱${mFunds.toLocaleString()}</strong></div>
+                            <div style="text-align:center;"><div style="color:var(--text-muted); font-size:11px;">Tasks Done</div><strong>${mDone}/${tList.length}</strong></div>
+                        </div>
+                    </div>
+                    
+                    <div style="background:var(--card-bg); padding:15px; border-radius:8px; border:1px solid var(--glass-border);">
+                        <div class="collapse-header" onclick="toggleCol('dossierTasks')"><h4 style="margin:0; color:var(--accent);">Assigned Tasks</h4><span>▼</span></div>
+                        <div id="dossierTasks" style="max-height:200px; overflow-y:auto; padding-right:5px; margin-top:10px;">`;
+                
+                if (!tList.length) html += `<p style="font-size:12px; color:var(--text-muted); margin:0; text-align:center;">No tasks assigned.</p>`;
+                else {
+                    tList.sort((a,b) => new Date(a.sched_date) - new Date(b.sched_date)).forEach(t => {
+                        const isDone = t.progress === 100;
+                        html += `
+                            <div style="border-bottom:1px solid rgba(255,255,255,0.1); padding:8px 0; display:flex; justify-content:space-between; align-items: center;">
+                                <div style="font-size:13px; font-weight:bold;">${t.title}<br><span style="font-size:10px; color:var(--text-muted); font-weight:normal;">Target: ${t.sched_date || '--'}</span></div>
+                                <div style="font-size:12px; font-weight:bold; color:${isDone ? 'var(--success)' : 'var(--warning)'};">${t.progress}%</div>
+                            </div>`;
+                    });
+                }
+                html += `</div></div></div>`;
+            } else {
+                html += `
+                <div style="padding: 20px 0;">
+                    <div class="collapse-header" onclick="toggleCol('dossierPubEnv')"><h4 style="margin:0; color:var(--accent);">Active Environments</h4><span>▼</span></div>
+                    <div id="dossierPubEnv" style="max-height: 150px; overflow-y:auto; padding-right:5px; display:flex; flex-direction:column; gap:8px; margin-top:10px;">`;
+                if(!targetWs.length) html += `<div style="font-size:12px; color:var(--text-muted); text-align:center;">No public affiliations.</div>`;
+                else {
+                    targetWs.forEach(w => {
+                        const wAv = w.photo_url ? `<img src="${w.photo_url}" style="width:100%;height:100%;object-fit:cover;">` : `📁`;
+                        html += `<div style="display:flex; align-items:center; gap:10px; background:var(--card-bg); padding:10px; border-radius:8px; border:1px solid var(--glass-border);"><div style="width:30px; height:30px; border-radius:6px; overflow:hidden; background:rgba(34,211,238,0.1); color:var(--secondary); display:flex; justify-content:center; align-items:center; font-size:16px;">${wAv}</div><span style="font-size:14px; font-weight:bold;">${w.name}</span></div>`;
+                    });
+                }
+                html += `</div></div>`;
+            }
+
+            const myAdminWs = myWorkspaces.filter(w => w.role === 'admin' && w.workspaces.status === 'active');
+            if (targetId !== sessionUser.id && myAdminWs.length > 0 && !currentWorkspace) {
+                html += `<div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; border:1px solid var(--glass-border);">
+                            <h4 style="margin:0 0 10px 0; color:var(--success);">Transmit Invitation</h4>
+                            <select id="inviteWsSelect" style="margin-bottom:10px;">
+                                <option value="" disabled selected>Select Environment...</option>`;
+                
+                myAdminWs.forEach(w => {
+                    const existingMem = targetMems.find(tm => tm.workspace_id === w.workspace_id);
+                    if (existingMem) {
+                        if (existingMem.status === 'active') html += `<option disabled>✅ ${w.workspaces.name} (Already a member)</option>`;
+                        else if (existingMem.status === 'pending_invite') html += `<option disabled>⏳ ${w.workspaces.name} (Invite Pending)</option>`;
+                        else if (existingMem.status === 'pending_approval') html += `<option disabled>⏳ ${w.workspaces.name} (Requesting to Join)</option>`;
+                    } else {
+                        html += `<option value="${w.workspace_id}">${w.workspaces.name}</option>`;
+                    }
+                });
+
+                html += `   </select>
+                            <button class="success" style="margin:0;" onclick="sendSpecificInvite('${targetId}')">Send Invite</button>
+                         </div>`;
+            } else if (targetId === sessionUser.id && !currentWorkspace) {
+                html += `<div style="text-align:center; padding-top:10px;"><button style="background:transparent; border:1px solid var(--glass-border); color:var(--text);" onclick="openProfileSettings()">⚙️ Edit My Profile</button></div>`;
+            }
+
+            document.getElementById('userProfileModalContent').innerHTML = html;
+            showModal('userProfileModal');
+        } catch(e) {
+            customAlert(e.message);
+        } finally {
+            showLoader(false);
+        }
+    }
+
+    async function sendSpecificInvite(targetId) {
+        const wsId = document.getElementById('inviteWsSelect').value;
+        if(!wsId) return customAlert("Select an environment to invite them to.");
+        
+        showLoader(true, "Transmitting...");
+        try {
+            const { error } = await db.from('workspace_members').insert([{workspace_id: wsId, user_id: targetId, role: 'member', status: 'pending_invite'}]);
+            if(error) {
+                if(error.code === '23505') throw new Error("Resident is already part of or invited to this environment.");
+                throw error;
+            }
+            const ws = myWorkspaces.find(w => w.workspace_id === wsId);
+            pushNotif(targetId, `You were invited to ${ws.workspaces.name}`);
+            customAlert("Invitation transmitted successfully.", "Success", "✅");
+            hideModal('userProfileModal');
+        } catch (err) { 
+            customAlert("Transmission Failed: " + err.message); 
+        } finally {
+            showLoader(false);
+        }
     }
 
     // --- MODULE: MEMBERS ---
@@ -545,7 +1221,18 @@
 
         let html = `<div class="glass card"><h3 class="neon" style="margin-top:0;">Environment Personnel</h3>`;
         active.forEach(m => {
-            html += `<div style="display:flex;justify-content:space-between;padding:15px;border-bottom:1px solid var(--glass-border);background:var(--card-bg);margin-bottom:10px;border-radius:12px; flex-wrap:wrap; gap:10px;"><div style="display:flex;align-items:center;gap:15px;"><div class="avatar-wrapper" style="width:40px;height:40px; position:relative;">${m.profile.avatar_url?`<img src="${m.profile.avatar_url}">`:svgs["User"]}<div style="position:absolute; bottom:-2px; right:-2px; font-size:10px; background:var(--bg-1); border-radius:50%; border:1px solid var(--glass-border); padding:1px;">${m.profile.sticker||'👤'}</div></div><div><div style="font-weight:bold;font-size:15px;">${m.profile.full_name}</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">@${m.profile.username}</div></div></div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">`;
+            html += `<div style="display:flex;justify-content:space-between;padding:15px;border-bottom:1px solid var(--glass-border);background:var(--card-bg);margin-bottom:10px;border-radius:12px; flex-wrap:wrap; gap:10px;">
+                        <div style="display:flex;align-items:center;gap:15px;cursor:pointer;" onclick="openWorkspaceUserModal('${m.user_id}')">
+                            <div class="avatar-wrapper" style="width:40px;height:40px; position:relative;">
+                                ${m.profile.avatar_url?`<img src="${m.profile.avatar_url}">`:svgs["User"]}
+                                <div style="position:absolute; bottom:-2px; right:-2px; font-size:10px; background:var(--bg-1); border-radius:50%; border:1px solid var(--glass-border); padding:1px;">${m.profile.sticker||'👤'}</div>
+                            </div>
+                            <div>
+                                <div style="font-weight:bold;font-size:15px;color:var(--text); transition:0.2s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text)'">${m.profile.full_name}</div>
+                                <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">@${m.profile.username}</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">`;
             
             if(isAdmin() && m.user_id !== sessionUser.id) {
                 html += `<input type="text" value="${m.display_role}" onchange="updDispRole('${m.user_id}', this.value)" style="width:120px; padding:6px; font-size:11px; margin:0;" placeholder="Custom Role Title">`;
@@ -558,13 +1245,14 @@
         
         if (isAdmin()) {
             if(pending.length > 0) {
-                html += `<h4 style="color:var(--warning); margin-top:20px;">Pending Invites</h4>`;
+                html += `<div class="collapse-header" onclick="toggleCol('pendingInvites')" style="margin-top:20px;"><h4 style="color:var(--warning); margin:0;">Pending Invites</h4><span>▼</span></div><div id="pendingInvites" style="margin-top:10px;">`;
                 pending.forEach(p => {
                     html += `<div style="display:flex;justify-content:space-between;padding:10px;background:var(--card-bg);margin-bottom:5px;border-radius:8px;border:1px dashed var(--warning);opacity:0.7;"><div><b>@${p.profile.username}</b></div><button class="danger" style="width:auto;padding:4px 8px;margin:0;" onclick="cancelInvite('${p.user_id}')">Cancel</button></div>`;
                 });
+                html += `</div>`;
             }
             html += `<button class="success" style="margin-top:20px;" onclick="showModal('searchModal')">+ Invite Personnel</button>`;
-        } else { html += `<button class="danger" style="margin-top:20px;" onclick="customAlert('Leave functionality currently restricted by protocol.')">Request Reassignment</button>`; }
+        } else { html += `<div style="font-size:11px; color:var(--text-muted); text-align:center; margin-top:20px;">Administrative privileges required to modify roster.</div>`; }
         
         c.innerHTML = html + `</div>`;
     }
@@ -575,43 +1263,50 @@
 
     // --- MODULE: DASHBOARD ---
     async function modDash(c, headerActions) {
-        showLoader(true); const [sprints, funds, gal] = await Promise.all([fetchWSData('sprints'), fetchWSData('funds'), fetchWSData('gallery')]); showLoader(false);
+        showLoader(true); const [sprints, funds, gal] = await Promise.all([fetchWSData('sprints'), hasFeature('Funds') ? fetchWSData('funds') : Promise.resolve([]), fetchWSData('gallery')]); showLoader(false);
         const doneS = sprints.filter(s=>s.status==='Done').length, totF = funds.reduce((a,f)=>f.type==='in'?a+Number(f.amount):a-Number(f.amount),0), feat = gal.filter(g=>g.featured);
         let h = `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;"><h3 style="margin:0; color:var(--secondary);">Environment Overview</h3>${headerActions}</div>`;
-        h += `<div class="grid-2"><div class="glass card"><h3 class="neon" style="margin-top:0;">Sprint Progress</h3><div style="background:rgba(255,255,255,0.1);border-radius:10px;height:10px;margin-top:15px;"><div style="width:${sprints.length?(doneS/sprints.length)*100:0}%;background:var(--secondary);height:100%;box-shadow:0 0 10px var(--secondary);"></div></div><p style="margin-top:10px;font-size:14px;color:var(--text-muted);">${doneS} of ${sprints.length} Completed</p></div><div class="glass card"><h3 class="neon" style="margin-top:0;">Financial Overview</h3><h2 style="margin:10px 0;font-size:32px;">₱${totF.toLocaleString()}</h2><p style="font-size:14px;color:var(--text-muted);margin:0;">Available Balance</p></div></div><h3 style="margin-top:20px;color:var(--secondary);">Featured Showcase</h3>`;
+        h += `<div class="grid-2"><div class="glass card"><h3 class="neon" style="margin-top:0;">Sprint Progress</h3><div style="background:rgba(255,255,255,0.1);border-radius:10px;height:10px;margin-top:15px;"><div style="width:${sprints.length?(doneS/sprints.length)*100:0}%;background:var(--secondary);height:100%;box-shadow:0 0 10px var(--secondary);"></div></div><p style="margin-top:10px;font-size:14px;color:var(--text-muted);">${doneS} of ${sprints.length} Completed</p></div>${hasFeature('Funds') ? `<div class="glass card"><h3 class="neon" style="margin-top:0;">Financial Overview</h3><h2 style="margin:10px 0;font-size:32px;">₱${totF.toLocaleString()}</h2><p style="font-size:14px;color:var(--text-muted);margin:0;">Available Balance</p></div>` : ''}</div>`;
+        h += `<div class="collapse-header" onclick="toggleCol('dashFeat')"><h3 style="margin:0; color:var(--secondary);">Featured Showcase</h3><span>▼</span></div><div id="dashFeat" style="margin-top:10px;">`;
         if(!feat.length) h+=`<div class="glass card" style="text-align:center;color:var(--text-muted);">No featured assets.</div>`;
         else h+=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;">${feat.map(g=>`<div style="border-radius:10px;overflow:hidden;aspect-ratio:1;border:1px solid var(--glass-border);"><img src="${g.url}" style="width:100%;height:100%;object-fit:cover;"></div>`).join('')}</div>`;
-        c.innerHTML = h;
+        c.innerHTML = h + `</div>`;
     }
 
     // --- MODULE: SPRINT BOARD ---
     async function modSprint(c) {
         showLoader(true); const sprints = await fetchWSData('sprints'); showLoader(false);
-        let h = isAdmin() ? `<div class="glass admin-panel"><h4 style="margin-top:0;color:var(--secondary);">Create Sprint</h4><div class="flex-row"><input id="smN" placeholder="Name" style="flex:2;"><input id="smW" type="number" placeholder="Weeks" style="flex:1;"><input id="smP" placeholder="Phase" style="flex:2;"></div><div class="flex-row"><textarea id="smO" placeholder="Objectives" style="flex:1;height:40px;"></textarea><textarea id="smD" placeholder="Deliverables" style="flex:1;height:40px;"></textarea><button onclick="addSprint()" style="flex:0.5;margin:0;">Create</button></div></div>` : '';
+        let h = '';
         h += `<div style="display:flex;gap:15px;overflow-x:auto;padding-bottom:15px;scroll-snap-type:x mandatory;">`;
         ["To Do", "In Progress", "Review", "Done"].forEach(col => {
             const colS = sprints.filter(s=>s.status===col);
-            h += `<div style="flex:1;min-width:280px;background:var(--card-bg);border-radius:10px;padding:12px;border:1px solid var(--glass-border);scroll-snap-align:center;"><h3>${col} <span style="float:right;font-size:12px;color:var(--secondary);">${colS.length}</span></h3><div style="display:flex;flex-direction:column;gap:10px;">`;
+            h += `<div class="kanban-col">
+                    <div class="collapse-header" onclick="toggleCol('kb_${col.replace(/\s+/g,'')}')" style="margin:0; padding-bottom:5px;">
+                        <h3 style="margin:0;">${col} <span style="font-size:12px;color:var(--secondary); background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:10px;">${colS.length}</span></h3><span>▼</span>
+                    </div>
+                    <div id="kb_${col.replace(/\s+/g,'')}" style="display:flex;flex-direction:column;gap:10px; margin-top:10px;">`;
             if(!colS.length) h+=`<p style="color:var(--text-muted);text-align:center;font-size:12px;">Empty</p>`;
             colS.forEach(s => {
-                h+=`<div style="background:var(--glass-bg);padding:15px;border-radius:8px;border:1px solid var(--glass-border);position:relative;">`;
-                if(isAdmin()) h+=`<button class="danger" style="position:absolute;top:5px;right:5px;width:auto;padding:2px 6px;margin:0;font-size:10px;" onclick="delDB('sprints','${s.id}','Sprint Board')">✖</button>`;
-                h+=`<div style="font-weight:bold;color:var(--secondary);margin-bottom:5px;padding-right:20px;">${s.name}</div><div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Phase: ${s.phase} &bull; ${s.weeks} Wks</div><div style="font-size:12px;background:var(--card-bg);padding:5px;border-radius:4px;margin-bottom:5px;"><b>Obj:</b> ${s.objectives}</div><div style="font-size:12px;background:var(--card-bg);padding:5px;border-radius:4px;"><b>Del:</b> ${s.deliverables}</div>`;
-                if(isAdmin()) h+=`<select onchange="updDB('sprints','${s.id}',{status:this.value},'Sprint Board')" style="margin-top:10px;padding:8px;"><option disabled selected>Move to...</option><option value="To Do">To Do</option><option value="In Progress">In Progress</option><option value="Review">Review</option><option value="Done">Done</option></select>`;
-                h+=`</div>`;
+                let statUI = isAdmin() ? `<select onchange="updDB('sprints','${s.id}',{status:this.value},'Sprint Board')" style="margin-top:10px;padding:8px;"><option disabled selected>Move to...</option><option value="To Do">To Do</option><option value="In Progress">In Progress</option><option value="Review">Review</option><option value="Done">Done</option></select>` : `<div style="font-size:11px; font-weight:bold; color:var(--success); margin-top:8px;">Status: ${s.status}</div>`;
+                let delBtn = isAdmin() ? `<button class="danger" style="position:absolute;top:5px;right:5px;width:auto;padding:2px 6px;margin:0;font-size:10px;" onclick="delDB('sprints','${s.id}','Sprint Board')">✖</button>` : '';
+                h+=`<div class="task-card">${delBtn}<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;padding-right:26px;"><div style="font-weight:bold;color:var(--secondary);margin-bottom:5px;">${s.name}</div>${renderPinButton({ workspace_id: currentWorkspace.workspace_id, workspace_name: currentWorkspace.workspaces.name, module: 'Sprint Board', item_id: s.id, title: s.name })}</div><div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Phase: ${s.phase} &bull; ${s.weeks} Wks</div><div style="font-size:12px;background:var(--card-bg);padding:5px;border-radius:4px;margin-bottom:5px;"><b>Obj:</b> ${s.objectives}</div><div style="font-size:12px;background:var(--card-bg);padding:5px;border-radius:4px;"><b>Del:</b> ${s.deliverables}</div>${statUI}</div>`;
             });
             h+=`</div></div>`;
         });
         c.innerHTML = h + `</div>`;
     }
-    window.addSprint = async () => { const n=document.getElementById('smN').value, w=document.getElementById('smW').value, p=document.getElementById('smP').value, o=document.getElementById('smO').value, d=document.getElementById('smD').value; if(!n) return customAlert("Name required"); showLoader(true); await db.from('sprints').insert([{workspace_id:currentWorkspace.workspace_id, name:n, weeks:w||1, phase:p||'None', objectives:o||'TBD', deliverables:d||'TBD'}]); showLoader(false); renderModule('Sprint Board'); };
-    window.updDB = async (t, id, updates, mod) => { showLoader(true); await db.from(t).update(updates).eq('id',id); renderModule(mod); };
+    window.addSprint = async () => { const n=document.getElementById('smN').value, w=document.getElementById('smW').value, p=document.getElementById('smP').value, o=document.getElementById('smO').value, d=document.getElementById('smD').value; if(!n) return customAlert("Name required"); showLoader(true); await db.from('sprints').insert([{workspace_id:currentWorkspace.workspace_id, name:n, weeks:w||1, phase:p||'None', objectives:o||'TBD', deliverables:d||'TBD'}]); hideModal('actionFormModal'); notifyWorkspace(`<span style="cursor:pointer; color:var(--secondary); font-weight:bold;" onclick="enterWorkspace('${currentWorkspace.workspace_id}'); setTimeout(()=>renderModule('Sprint Board'),800);">📋 @${userProfile.username} mapped Sprint: ${n}</span>`); showLoader(false); renderModule('Sprint Board'); };
+    window.updDB = async (t, id, updates, mod) => { if(t === 'funds' && !canManageFunds()) return customAlert("Funds feature is not enabled for this workspace."); showLoader(true); await db.from(t).update(updates).eq('id',id); renderModule(mod); };
+    window.updTimelineProgress = async (id, value) => {
+        const progress = Math.max(0, Math.min(100, Number(value) || 0));
+        await updDB('timeline', id, { progress }, 'Timeline');
+    };
 
     // --- MODULE: TIMELINE ---
     async function modTimeline(c) {
         showLoader(true); const tl = await fetchWSData('timeline'); showLoader(false);
         const memOpts = wsMembersFull.map(m=>`<option value="${m.profile.id}">${m.profile.full_name}</option>`).join('');
-        let h = isAdmin() ? `<div class="glass admin-panel"><h4 style="margin-top:0;color:var(--accent);">Add Task</h4><div class="flex-row"><input id="tlP" placeholder="Phase" style="flex:1;"><input id="tlT" placeholder="Task Name" style="flex:2;"><select id="tlO" style="flex:1;"><option value="">Team (Unassigned)</option>${memOpts}</select><input id="tlProg" type="number" placeholder="Prog %" style="flex:1;"></div><div class="flex-row"><input id="tlS" type="date" title="Start" style="flex:1;"><input id="tlD" type="date" title="Scheduled" style="flex:1;"><input id="tlE" type="date" title="Actual End" style="flex:1;"><button onclick="addTL()" style="flex:1;margin:0;">Add Task</button></div></div>` : '';
+        let h = '';
         h += `<div class="glass card" style="overflow-x:auto;"><h3 style="margin-top:0;">Gantt Schedule</h3>`;
         if(!tl.length) h+=`<p style="color:var(--text-muted);">No tasks.</p>`;
         else {
@@ -622,118 +1317,492 @@
                 const sT = new Date(t.start_date).getTime(), scT = new Date(t.sched_date).getTime(), eT = t.end_date?new Date(t.end_date).getTime():scT;
                 const lP = ((sT-min)/span)*100, wP = Math.max(2, ((eT-sT)/span)*100), scP = ((scT-min)/span)*100;
                 const done = t.progress === 100, late = done && eT>scT, col = done ? (late?'#ef4444':'#10b981') : 'var(--primary)';
-                const ownerName = t.owner ? (wsMembersFull.find(m=>m.user_id===t.owner)?.profile.full_name || 'Unknown') : 'Team';
-                h+=`<tr><td style="font-weight:bold;">${t.title}</td><td style="color:var(--secondary);">${ownerName}</td><td>${t.start_date||'--'}</td><td>${t.sched_date||'--'}</td><td style="color:${col};">${t.end_date||'--'}</td><td>${t.progress}%</td><td><div class="gantt-track"><div style="position:absolute;left:${lP}%;width:${wP}%;background:${col};height:100%;opacity:0.8;"></div><div style="position:absolute;left:${scP}%;width:2px;background:var(--accent);height:100%;z-index:2;"></div></div></td>${isAdmin()?`<td><button class="danger" style="padding:4px 8px;margin:0;width:auto;font-size:10px;" onclick="delDB('timeline','${t.id}','Timeline')">✖</button></td>`:''}</tr>`;
+                const ownerProfile = t.owner ? wsMembersFull.find(m=>m.user_id===t.owner)?.profile : null;
+                const ownerName = ownerProfile ? renderProfileChip(ownerProfile) : 'Team';
+                let progUI = isAdmin() ? `<input type="number" min="0" max="100" value="${t.progress || 0}" onblur="updTimelineProgress('${t.id}', this.value)" style="padding:4px; font-size:10px; margin:0; width:70px;">` : `${t.progress}%`;
+                let delBtn = isAdmin() ? `<td><button class="danger" style="padding:4px 8px;margin:0;width:auto;font-size:10px;" onclick="delDB('timeline','${t.id}','Timeline')">✖</button></td>` : '';
+                h+=`<tr><td style="font-weight:bold; white-space:normal;">${renderTextWithMentions(t.title)}<div style="margin-top:8px;">${renderPinButton({ workspace_id: currentWorkspace.workspace_id, workspace_name: currentWorkspace.workspaces.name, module: 'Timeline', item_id: t.id, title: t.title })}</div></td><td style="color:var(--secondary);">${ownerName}</td><td>${t.start_date||'--'}</td><td>${t.sched_date||'--'}</td><td style="color:${col};">${t.end_date||'--'}</td><td>${progUI}</td><td><div class="gantt-track"><div style="position:absolute;left:${lP}%;width:${wP}%;background:${col};height:100%;opacity:0.8;"></div><div style="position:absolute;left:${scP}%;width:2px;background:var(--accent);height:100%;z-index:2;"></div></div></td>${delBtn}</tr>`;
             });
             h+=`</table>`;
         }
         c.innerHTML = h + `</div>`;
     }
-    window.addTL = async () => { const p=document.getElementById('tlP').value||'Phase 1', t=document.getElementById('tlT').value, o=document.getElementById('tlO').value, pr=document.getElementById('tlProg').value||0, s=document.getElementById('tlS').value, d=document.getElementById('tlD').value, e=document.getElementById('tlE').value; if(!t||!s||!d) return customAlert("Title, Start, and Sched required."); showLoader(true); await db.from('timeline').insert([{workspace_id:currentWorkspace.workspace_id, phase:p, title:t, owner:o||null, progress:pr, start_date:s, sched_date:d, end_date:e||null}]); if(o) pushNotif(o, `You were assigned a task in ${currentWorkspace.workspaces.name}: ${t}`); showLoader(false); renderModule('Timeline'); };
+    window.addTL = async () => { const p=document.getElementById('tlP').value||'Phase 1', t=document.getElementById('tlT').value, o=document.getElementById('tlO').value, pr=document.getElementById('tlProg').value||0, s=document.getElementById('tlS').value, d=document.getElementById('tlD').value, e=document.getElementById('tlE').value; if(!t||!s||!d) return customAlert("Title, Start, and Sched required."); showLoader(true); await db.from('timeline').insert([{workspace_id:currentWorkspace.workspace_id, phase:p, title:t, owner:o||null, progress:pr, start_date:s, sched_date:d, end_date:e||null}]); hideModal('actionFormModal'); notifyWorkspace(`<span style="cursor:pointer; color:var(--secondary); font-weight:bold;" onclick="enterWorkspace('${currentWorkspace.workspace_id}'); setTimeout(()=>renderModule('Timeline'),800);">📅 @${userProfile.username} plotted task: ${t}</span>`); showLoader(false); renderModule('Timeline'); };
 
     // --- MODULE: FUNDS ---
     async function modFunds(c) {
+        if(!hasFeature('Funds')) return c.innerHTML = `<div class="glass card" style="text-align:center;"><h3 class="neon" style="margin-top:0;">Funds</h3><p style="color:var(--text-muted);">Funds is not enabled for this workspace.</p></div>`;
         showLoader(true); const funds = await fetchWSData('funds'); showLoader(false);
-        let t=0, i=0, e=0; funds.forEach(f=>{ if(f.type==='in'){t+=Number(f.amount);i+=Number(f.amount);}else{t-=Number(f.amount);e+=Number(f.amount);} });
+        let t=0, i=0, e=0; let memFunds = {}; wsMembersFull.forEach(m => memFunds[m.user_id] = 0);
+        funds.forEach(f=>{ if(f.type==='in'){ t+=Number(f.amount);i+=Number(f.amount); if(f.contributor_id && memFunds[f.contributor_id] !== undefined) memFunds[f.contributor_id] += Number(f.amount); }else{ t-=Number(f.amount);e+=Number(f.amount); } });
         const memOpts = wsMembersFull.map(m=>`<option value="${m.profile.id}">${m.profile.full_name}</option>`).join('');
-        let h = `<div class="grid-3" style="margin-bottom:15px;"><div class="glass card" style="text-align:center;padding:15px;margin:0;"><h3 style="color:var(--text-muted);margin:0;font-size:11px;text-transform:uppercase;">Balance</h3><h2 class="neon" style="margin:5px 0;">₱${t}</h2></div><div class="glass card" style="text-align:center;padding:15px;margin:0;"><h3 style="color:var(--success);margin:0;font-size:11px;text-transform:uppercase;">Income</h3><h2 style="margin:5px 0;">₱${i}</h2></div><div class="glass card" style="text-align:center;padding:15px;margin:0;"><h3 style="color:var(--danger);margin:0;font-size:11px;text-transform:uppercase;">Expenses</h3><h2 style="margin:5px 0;">₱${e}</h2></div></div>`;
-        if(isAdmin()) h+=`<div class="glass admin-panel"><h4 style="margin-top:0;color:var(--accent)">Record Transaction</h4><div class="flex-row"><select id="fT" style="flex:1;"><option value="in">Income (+)</option><option value="out">Expense (-)</option></select><input id="fD" type="date" style="flex:1;"><select id="fC" style="flex:2;"><option value="" disabled selected>Contributor...</option><option value="other">Other/Misc</option>${memOpts}</select><input id="fDesc" placeholder="Description" style="flex:2;"><input id="fA" type="number" placeholder="Amt ₱" style="flex:1;"><button onclick="addFund()" style="flex:1;margin:0;">Record</button></div></div>`;
-        h+=`<div class="grid-2"><div class="glass card"><h3>Ledger</h3><div style="max-height:300px;overflow-y:auto;padding-right:5px;">`;
+        let h = `<div class="grid-3" style="margin-bottom:15px;"><div class="glass card" style="text-align:center;padding:15px;margin:0;"><h3 style="color:var(--text-muted);margin:0;font-size:11px;text-transform:uppercase;">Balance</h3><h2 class="neon" style="margin:5px 0;">₱${t.toLocaleString()}</h2></div><div class="glass card" style="text-align:center;padding:15px;margin:0;"><h3 style="color:var(--success);margin:0;font-size:11px;text-transform:uppercase;">Income</h3><h2 style="margin:5px 0;">₱${i.toLocaleString()}</h2></div><div class="glass card" style="text-align:center;padding:15px;margin:0;"><h3 style="color:var(--danger);margin:0;font-size:11px;text-transform:uppercase;">Expenses</h3><h2 style="margin:5px 0;">₱${e.toLocaleString()}</h2></div></div>`;
+        
+        h += `<div class="collapse-header" onclick="toggleCol('fundContribs')"><h3 style="margin:0; color: var(--secondary);">Member Contributions (₱${currentWorkspace.workspaces.fund_amount || 50} / ${currentWorkspace.workspaces.fund_frequency || 'Weekly'})</h3><span>▼</span></div><div id="fundContribs" class="grid-3" style="margin-bottom: 20px; margin-top:10px;">`;
+        wsMembersFull.filter(m => m.status === 'active').forEach(m => { const mTotal = memFunds[m.user_id] || 0; const targetAmt = currentWorkspace.workspaces.fund_amount || 50; const metric = currentWorkspace.workspaces.fund_frequency || 'Weekly'; const counts = targetAmt > 0 ? Math.floor(mTotal / targetAmt) : 0; h += `<div class="glass card" style="padding: 15px; text-align: center; border-top: 3px solid var(--secondary); cursor:pointer; margin-bottom:0;" onclick="openWorkspaceUserModal('${m.user_id}')"><div style="font-weight: bold; font-size:14px; color:var(--text);">${m.profile.full_name}</div><div style="font-size: 18px; font-weight: bold; margin: 5px 0; color: var(--success);">₱${mTotal.toLocaleString()}</div><div style="font-size: 10px; color: var(--text-muted);">${counts} ${metric} Paid</div></div>`; });
+        h += `</div>`;
+
+        h+=`<div class="glass card"><div class="collapse-header" onclick="toggleCol('fundLedger')"><h3 style="margin:0;">Ledger</h3><span>▼</span></div><div id="fundLedger" style="max-height:300px;overflow-y:auto;padding-right:5px; margin-top:10px;">`;
         if(!funds.length) h+=`<p style="color:var(--text-muted);font-size:12px;">No transactions.</p>`;
         funds.sort((a,b)=>new Date(b.date)-new Date(a.date)).forEach(f=>{
             const isI = f.type==='in', cName = f.contributor_id ? (wsMembersFull.find(m=>m.user_id===f.contributor_id)?.profile.full_name || 'Unknown') : 'Misc';
-            h+=`<div style="display:flex;justify-content:space-between;padding:10px;background:var(--card-bg);border:1px solid var(--glass-border);border-radius:8px;margin-bottom:6px;"><div><div style="font-weight:bold;font-size:14px;">${isI?cName:f.description}</div><div style="font-size:10px;color:var(--text-muted);">${f.date}</div></div><div style="display:flex;align-items:center;gap:10px;"><div style="font-weight:bold;color:${isI?'var(--success)':'var(--danger)'};">${isI?'+':'-'}₱${f.amount}</div>${isAdmin()?`<button class="danger" style="padding:4px 8px;margin:0;width:auto;" onclick="delDB('funds','${f.id}','Funds')">✖</button>`:''}</div></div>`;
+            const contributorProfile = f.contributor_id ? wsMembersFull.find(m=>m.user_id===f.contributor_id)?.profile : null;
+            const labelHtml = isI ? (contributorProfile ? renderProfileChip(contributorProfile) : escapeHtml(cName)) : renderTextWithMentions(f.description);
+            h+=`<div style="display:flex;justify-content:space-between;padding:10px;background:var(--card-bg);border:1px solid var(--glass-border);border-radius:8px;margin-bottom:6px;"><div><div style="font-weight:bold;font-size:14px;">${labelHtml}</div><div style="font-size:10px;color:var(--text-muted);">${f.date}</div></div><div class="pin-row"><div style="font-weight:bold;color:${isI?'var(--success)':'var(--danger)'};">${isI?'+':'-'}₱${f.amount}</div>${renderPinButton({ workspace_id: currentWorkspace.workspace_id, workspace_name: currentWorkspace.workspaces.name, module: 'Funds', item_id: f.id, title: `${isI ? cName : f.description} (${f.amount})` })}${canManageFunds()?`<button class="danger" style="padding:4px 8px;margin:0;width:auto;" onclick="delDB('funds','${f.id}','Funds')">✖</button>`:''}</div></div>`;
         });
-        c.innerHTML = h + `</div></div></div>`;
+        c.innerHTML = h + `</div></div>`;
     }
-    window.addFund = async () => { const t=document.getElementById('fT').value, d=document.getElementById('fD').value, c=document.getElementById('fC').value, desc=document.getElementById('fDesc').value, a=document.getElementById('fA').value; if(!d || !a) return customAlert("Date and Amount required."); showLoader(true); await db.from('funds').insert([{workspace_id:currentWorkspace.workspace_id, type:t, date:d, contributor_id:c==='other'||!c?null:c, description:desc||(t==='in'?'Contribution':'Expense'), amount:a}]); showLoader(false); renderModule('Funds'); };
+    window.addFund = async () => { if(!canManageFunds()) return customAlert("Funds feature is not enabled for this workspace."); const t=document.getElementById('fT').value, d=document.getElementById('fD').value, c=document.getElementById('fC').value, desc=document.getElementById('fDesc').value, a=document.getElementById('fA').value; if(!d || !a) return customAlert("Date and Amount required."); showLoader(true); await db.from('funds').insert([{workspace_id:currentWorkspace.workspace_id, type:t, date:d, contributor_id:c==='other'||!c?null:c, description:desc||(t==='in'?'Contribution':'Expense'), amount:a}]); hideModal('actionFormModal'); notifyWorkspace(`<span style="cursor:pointer; color:var(--secondary); font-weight:bold;" onclick="enterWorkspace('${currentWorkspace.workspace_id}'); setTimeout(()=>renderModule('Funds'),800);">💰 @${userProfile.username} updated the ledger.</span>`); showLoader(false); renderModule('Funds'); };
 
     // --- MODULE: CALENDAR ---
+    let currentCalDate = new Date();
     async function modCalendar(c) {
         showLoader(true); const [cal, tl] = await Promise.all([fetchWSData('calendar'), fetchWSData('timeline')]); showLoader(false);
-        let h = isAdmin() ? `<div class="glass admin-panel"><div class="flex-row"><input id="ceT" placeholder="Event Title" style="flex:2;"><input id="ceD" type="date" style="flex:1;"><select id="ceTy" style="flex:1;"><option value="meeting">Meeting</option><option value="defense">Defense</option><option value="other">Other</option></select><button onclick="addCal()" style="flex:1;margin:0;">Schedule</button></div></div>` : '';
-        h+=`<div class="grid-2"><div class="glass card"><h3 class="neon" style="margin-top:0;">Upcoming</h3><div style="max-height:300px;overflow-y:auto;padding-right:5px;">`;
+        let h = '';
+        
         let evs = [...cal]; tl.forEach(t=>{if(t.sched_date) evs.push({id:t.id, title:`Due: ${t.title}`, date:t.sched_date, type:'task'});});
+        
+        const year = currentCalDate.getFullYear(); const month = currentCalDate.getMonth();
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const firstDay = new Date(year, month, 1).getDay(); const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const todayStr = new Date().toISOString().split('T')[0];
+
+        h += `
+        <div class="grid-2">
+            <div class="glass card">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+                    <h3 style="margin:0;" class="neon">${monthNames[month]} ${year}</h3>
+                    <div style="display:flex; gap: 5px;">
+                        <button style="width:auto; padding:4px 8px; margin:0;" onclick="changeCalMonth(-1)">&#8592;</button>
+                        <button style="width:auto; padding:4px 8px; margin:0;" onclick="changeCalMonth(1)">&#8594;</button>
+                    </div>
+                </div>
+                <div class="cal-grid">
+                    <div class="cal-header">Sun</div><div class="cal-header">Mon</div><div class="cal-header">Tue</div><div class="cal-header">Wed</div><div class="cal-header">Thu</div><div class="cal-header">Fri</div><div class="cal-header">Sat</div>`;
+        
+        for(let i=0; i<firstDay; i++) { h+= `<div class="cal-day empty"></div>`; }
+        for(let d=1; d<=daysInMonth; d++) {
+            const dStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+            const dayEvs = evs.filter(e => e.date === dStr);
+            const isToday = dStr === todayStr ? 'today' : '';
+            let dots = '';
+            dayEvs.forEach(e => {
+                const col = e.type === 'task' ? 'var(--secondary)' : (e.type === 'defense' ? 'var(--danger)' : 'var(--accent)');
+                dots += `<div class="cal-event-dot" style="background:${col}; box-shadow: 0 0 5px ${col};"></div>`;
+            });
+            h += `<div class="cal-day ${isToday}"><div>${d}</div><div style="display:flex;gap:3px;flex-wrap:wrap;justify-content:center;margin-top:4px;width:100%;">${dots}</div></div>`;
+        }
+        h += `</div></div>`;
+        
+        h += `<div class="glass card"><div class="collapse-header" onclick="toggleCol('calList')"><h3 class="neon" style="margin:0;">Upcoming</h3><span>▼</span></div><div id="calList" style="max-height:300px;overflow-y:auto;padding-right:5px; margin-top:10px;">`;
         evs.sort((a,b)=>new Date(a.date)-new Date(b.date));
         if(!evs.length) h+=`<p style="color:var(--text-muted);font-size:12px;">No events.</p>`;
-        evs.forEach(e=>{ h+=`<div style="padding:12px;background:var(--card-bg);border-left:4px solid ${e.type==='task'?'var(--secondary)':(e.type==='defense'?'var(--danger)':'var(--accent)')};margin-bottom:8px;border-radius:6px;display:flex;justify-content:space-between;"><div style="font-size:13px;"><b>${e.title}</b><br><span style="font-size:10px;color:var(--text-muted);">${e.date}</span></div>${isAdmin()&&e.type!=='task'?`<button class="danger" style="width:auto;padding:4px 8px;margin:0;" onclick="delDB('calendar','${e.id}','Calendar')">✖</button>`:''}</div>`; });
+        evs.forEach(e=>{ h+=`<div style="padding:12px;background:var(--card-bg);border-left:4px solid ${e.type==='task'?'var(--secondary)':(e.type==='defense'?'var(--danger)':'var(--accent)')};margin-bottom:8px;border-radius:6px;display:flex;justify-content:space-between;gap:10px;"><div style="font-size:13px;"><b>${e.title}</b><br><span style="font-size:10px;color:var(--text-muted);">${e.date}</span></div><div class="pin-row">${renderPinButton({ workspace_id: currentWorkspace.workspace_id, workspace_name: currentWorkspace.workspaces.name, module: 'Calendar', item_id: e.id, title: e.title, date: e.date })}${isAdmin()&&e.type!=='task'?`<button class="danger" style="width:auto;padding:4px 8px;margin:0;" onclick="delDB('calendar','${e.id}','Calendar')">✖</button>`:''}</div></div>`; });
         c.innerHTML = h + `</div></div></div>`;
     }
-    window.addCal = async () => { const t=document.getElementById('ceT').value, d=document.getElementById('ceD').value, ty=document.getElementById('ceTy').value; if(!t||!d) return; showLoader(true); await db.from('calendar').insert([{workspace_id:currentWorkspace.workspace_id, title:t, date:d, type:ty}]); showLoader(false); renderModule('Calendar'); };
+    window.changeCalMonth = (dir) => { currentCalDate.setMonth(currentCalDate.getMonth() + dir); renderModule('Calendar'); };
+    window.addCal = async () => { const t=document.getElementById('ceT').value, d=document.getElementById('ceD').value, ty=document.getElementById('ceTy').value; if(!t||!d) return; showLoader(true); await db.from('calendar').insert([{workspace_id:currentWorkspace.workspace_id, title:t, date:d, type:ty}]); hideModal('actionFormModal'); notifyWorkspace(`<span style="cursor:pointer; color:var(--secondary); font-weight:bold;" onclick="enterWorkspace('${currentWorkspace.workspace_id}'); setTimeout(()=>renderModule('Calendar'),800);">📆 @${userProfile.username} scheduled: ${t}</span>`); showLoader(false); renderModule('Calendar'); };
 
     // --- MODULE: RESOURCES ---
     async function modResources(c) {
         showLoader(true); const res = await fetchWSData('resources'); showLoader(false);
-        let h = isAdmin() ? `<div class="glass admin-panel"><div class="flex-row"><input id="rT" placeholder="Title" style="flex:2;"><select id="rTy" style="flex:1;" onchange="document.getElementById('rU').style.display=this.value==='link'?'block':'none';document.getElementById('rF').style.display=this.value==='file'?'block':'none';"><option value="link">Web Link</option><option value="file">Upload File</option></select><input id="rU" placeholder="URL" style="flex:2;"><input id="rF" type="file" style="flex:2;display:none;padding:9px;" accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,.zip"><button onclick="addRes()" style="flex:1;margin:0;">Add</button></div></div>` : '';
+        let h = '';
         h += `<div class="glass card"><h3 class="neon" style="margin-top:0;">Database</h3><div style="display:flex;flex-direction:column;gap:8px;">`;
         if(!res.length) h+=`<p style="color:var(--text-muted);">No resources.</p>`;
         res.sort((a,b)=>b.pinned-a.pinned).forEach(r=>{
-            h+=`<div style="display:flex;justify-content:space-between;padding:12px;background:var(--card-bg);border:1px solid ${r.pinned?'var(--warning)':'var(--glass-border)'};border-radius:8px;align-items:center;"><div><div style="font-weight:bold;font-size:14px;color:var(--text);">${r.pinned?'📌 ':''}${r.title}</div><div style="font-size:10px;color:var(--text-muted);margin-top:4px;">${r.type.toUpperCase()}</div></div><div style="display:flex;gap:8px;">${r.type==='file'?`<button class="success" style="width:auto;padding:6px 12px;margin:0;" onclick="window.open('${r.url}','_blank')">Download</button>`:`<button class="success" style="width:auto;padding:6px 12px;margin:0;" onclick="window.open('${r.url}','_blank')">Open</button>`}${isAdmin()?`<button class="danger" style="width:auto;padding:6px 12px;margin:0;" onclick="delDB('resources','${r.id}','Resources')">✖</button>`:''}</div></div>`;
+            h+=`<div style="display:flex;justify-content:space-between;padding:12px;background:var(--card-bg);border:1px solid ${r.pinned?'var(--warning)':'var(--glass-border)'};border-radius:8px;align-items:center;gap:10px;"><div><div style="font-weight:bold;font-size:14px;color:var(--text);">${r.pinned?'📌 ':''}${r.title}</div><div style="font-size:10px;color:var(--text-muted);margin-top:4px;">${r.type.toUpperCase()}</div></div><div class="pin-row">${r.type==='file'?`<button class="success" style="width:auto;padding:6px 12px;margin:0;" onclick="window.open('${r.url}','_blank')">Download</button>`:`<button class="success" style="width:auto;padding:6px 12px;margin:0;" onclick="window.open('${r.url}','_blank')">Open</button>`}${renderPinButton({ workspace_id: currentWorkspace.workspace_id, workspace_name: currentWorkspace.workspaces.name, module: 'Resources', item_id: r.id, title: r.title, url: r.url })}${isAdmin()?`<button class="danger" style="width:auto;padding:6px 12px;margin:0;" onclick="delDB('resources','${r.id}','Resources')">✖</button>`:''}</div></div>`;
         });
         c.innerHTML = h + `</div></div>`;
     }
-    window.addRes = async () => { const t=document.getElementById('rT').value, ty=document.getElementById('rTy').value, u=document.getElementById('rU').value, f=document.getElementById('rF'); if(!t) return customAlert("Title required."); showLoader(true); try{ let url=u, fn=null; if(ty==='file'){ if(!f.files.length) throw new Error("Select a file."); url = await uploadToCloudinary(f.files[0]); fn=f.files[0].name; } await db.from('resources').insert([{workspace_id:currentWorkspace.workspace_id, title:t, type:ty, url, file_name:fn}]); renderModule('Resources'); }catch(e){customAlert(e.message);} finally{showLoader(false);} };
+    window.addRes = async () => { const t=document.getElementById('rT').value, ty=document.getElementById('rTy').value, u=document.getElementById('rU').value, f=document.getElementById('rF'); if(!t) return customAlert("Title required."); showLoader(true); try{ let url=u, fn=null; if(ty==='file'){ if(!f.files.length) throw new Error("Select a file."); url = await uploadToCloudinary(f.files[0]); fn=f.files[0].name; } await db.from('resources').insert([{workspace_id:currentWorkspace.workspace_id, title:t, type:ty, url, file_name:fn}]); hideModal('actionFormModal'); notifyWorkspace(`<span style="cursor:pointer; color:var(--secondary); font-weight:bold;" onclick="enterWorkspace('${currentWorkspace.workspace_id}'); setTimeout(()=>renderModule('Resources'),800);">🔗 @${userProfile.username} dropped a resource: ${t}</span>`); renderModule('Resources'); }catch(e){customAlert(e.message);} finally{showLoader(false);} };
 
     // --- MODULE: GALLERY ---
+    let currentGalleryFolder = null;
     async function modGallery(c) {
         showLoader(true); const gal = await fetchWSData('gallery'); showLoader(false);
-        let h = isAdmin() ? `<div class="glass admin-panel"><div class="flex-row"><input id="gC" placeholder="Caption" style="flex:1;"><input id="gF" type="file" accept="image/*" multiple style="flex:1;padding:9px;"><button onclick="addGal()" style="flex:0.5;margin:0;">Upload</button></div></div>` : '';
-        h += `<div class="glass card"><h3 class="neon" style="margin-top:0;">Visual Assets</h3><div class="gallery-grid">`;
-        if(!gal.length) h+=`<p style="color:var(--text-muted);grid-column:1/-1;text-align:center;">Empty gallery.</p>`;
-        gal.forEach(g=>{
-            h+=`<div class="gallery-item" onclick="openLightbox('${g.url}','${g.caption}')"><img src="${g.url}"><div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.8);padding:8px;font-size:10px;color:#fff;">${g.caption}</div>${isAdmin()?`<button class="danger" style="position:absolute;top:5px;right:5px;width:auto;padding:2px 6px;margin:0;font-size:9px;" onclick="event.stopPropagation();delDB('gallery','${g.id}','Gallery')">✖</button>`:''}</div>`;
-        });
+        let h = '';
+        
+        h += `<div class="glass card">`;
+        if(!currentGalleryFolder) {
+            h += `<div class="collapse-header" onclick="toggleCol('galFolderGrid')"><h3 class="neon" style="margin:0;">Visual Assets (Folders)</h3><span>▼</span></div><div id="galFolderGrid" class="gallery-grid" style="margin-top:10px;">`;
+            const folders = {};
+            gal.forEach(g => { let f = g.folder || 'Uncategorized'; if(!folders[f]) folders[f] = { count: 0, cover: g.url }; folders[f].count++; });
+            if(!Object.keys(folders).length) h+=`<p style="color:var(--text-muted);grid-column:1/-1;text-align:center;">Empty gallery.</p>`;
+            Object.keys(folders).forEach(fName => {
+                h+=`<div class="gallery-item" onclick="openGalFolder('${fName}')"><img src="${folders[fName].cover}" style="opacity: 0.4;"><div class="folder-overlay"><div style="font-size: 30px; margin-bottom: 5px;">📁</div><div style="font-weight:bold; font-size:14px; text-align:center; padding:0 5px;">${fName}</div><div style="font-size:10px; color:var(--secondary); margin-top:5px;">${folders[fName].count} Items</div></div></div>`;
+            });
+        } else {
+            h += `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 15px;"><h3 class="neon" style="margin:0;">📁 ${currentGalleryFolder}</h3><button style="width:auto; padding:6px 12px; margin:0;" onclick="openGalFolder(null)">🔙 Back</button></div><div class="gallery-grid">`;
+            const fItems = gal.filter(g => (g.folder || 'Uncategorized') === currentGalleryFolder);
+            if(!fItems.length) h+=`<p style="color:var(--text-muted);grid-column:1/-1;">Folder is empty.</p>`;
+            fItems.forEach(g=>{
+                h+=`<div class="gallery-item" onclick="openLightbox('${g.url}','${g.caption}')"><img src="${g.url}"><div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.8);padding:8px;font-size:10px;color:#fff;">${g.caption}</div><div style="position:absolute;top:5px;left:5px;">${renderPinButton({ workspace_id: currentWorkspace.workspace_id, workspace_name: currentWorkspace.workspaces.name, module: 'Gallery', item_id: g.id, title: g.caption, url: g.url })}</div>${isAdmin()?`<button class="danger" style="position:absolute;top:5px;right:5px;width:auto;padding:2px 6px;margin:0;font-size:9px;" onclick="event.stopPropagation();delDB('gallery','${g.id}','Gallery')">✖</button>`:''}</div>`;
+            });
+        }
         c.innerHTML = h + `</div></div>`;
     }
-    window.addGal = async () => { const c=document.getElementById('gC').value||'Untitled', f=document.getElementById('gF'); if(!f.files.length) return; showLoader(true); try{ for(let i=0;i<f.files.length;i++){ const u = await uploadToCloudinary(f.files[i]); await db.from('gallery').insert([{workspace_id:currentWorkspace.workspace_id, url:u, caption:f.files.length>1?`${c} (${i+1})`:c}]); } renderModule('Gallery'); }catch(e){customAlert(e.message);} finally{showLoader(false);} };
+    window.openGalFolder = (fName) => { currentGalleryFolder = fName; renderModule('Gallery'); };
+    window.addGal = async () => { const fld=document.getElementById('gFolder').value||'Uncategorized', c=document.getElementById('gC').value||'Untitled', f=document.getElementById('gF'); if(!f.files.length) return; showLoader(true); try{ for(let i=0;i<f.files.length;i++){ const u = await uploadToCloudinary(f.files[i]); await db.from('gallery').insert([{workspace_id:currentWorkspace.workspace_id, url:u, folder:fld, caption:f.files.length>1?`${c} (${i+1})`:c}]); } currentGalleryFolder = fld; hideModal('actionFormModal'); notifyWorkspace(`<span style="cursor:pointer; color:var(--secondary); font-weight:bold;" onclick="enterWorkspace('${currentWorkspace.workspace_id}'); setTimeout(()=>renderModule('Gallery'),800);">📸 @${userProfile.username} uploaded to Gallery.</span>`); renderModule('Gallery'); }catch(e){customAlert(e.message);} finally{showLoader(false);} };
     window.openLightbox = (u,c) => { document.getElementById('lightboxImg').src=u; document.getElementById('lightboxCaption').innerText=c; document.getElementById('lightboxModal').style.display='flex'; };
     window.closeLightbox = () => { document.getElementById('lightboxModal').style.display='none'; document.getElementById('lightboxImg').src=''; };
 
-    // --- SEARCH / SUPER ADMIN ---
-    async function loadSuperAdmin() {
-        showLoader(true);
-        const {data:ws} = await db.from('workspaces').select('*').eq('status','pending'); const {data:us} = await db.from('profiles').select('*');
-        let h=`<button onclick="loadLobby()" style="width:auto;margin-bottom:15px;">🔙 Lobby</button><div class="grid-2"><div class="glass card"><h3 class="neon" style="color:var(--warning);margin-top:0;">Approvals</h3>`;
-        if(!ws?.length) h+=`<p style="font-size:12px;color:var(--text-muted);">None.</p>`;
-        ws?.forEach(w=>{ h+=`<div style="background:var(--card-bg);padding:12px;border:1px solid var(--glass-border);border-radius:8px;margin-bottom:8px;"><b>${w.name}</b><br><span style="font-size:10px;">ID: ${w.id}</span><button class="success" onclick="appWs('${w.id}')">Approve</button></div>`; });
-        h+=`</div><div class="glass card"><h3 class="neon" style="margin-top:0;">Registry</h3><div style="max-height:400px;overflow-y:auto;padding-right:5px;">`;
-        us?.forEach(u=>{ h+=`<div style="padding:10px;border-bottom:1px solid var(--glass-border);display:flex;justify-content:space-between;align-items:center;background:var(--card-bg);margin-bottom:6px;border-radius:6px;opacity:${u.status==='banned'?0.5:1};"><div><b>${u.full_name}</b><br><span style="font-size:10px;color:var(--text-muted);">@${u.username}</span></div>${u.id!==sessionUser.id?`<div style="display:flex;gap:5px;">${u.status==='banned'?`<button class="success" style="padding:4px 8px;margin:0;font-size:10px;" onclick="updProf('${u.id}','active')">Unban</button>`:`<button class="warning" style="padding:4px 8px;margin:0;font-size:10px;" onclick="warn('${u.id}')">Warn</button><button class="danger" style="padding:4px 8px;margin:0;font-size:10px;" onclick="updProf('${u.id}','banned')">Ban</button>`}</div>`:'<span>MAX</span>'}</div>`; });
-        document.getElementById('contentArea').innerHTML=h+`</div></div></div>`; showLoader(false);
-    }
-    window.appWs = async (id) => { showLoader(true); await db.from('workspaces').update({status:'active'}).eq('id',id); loadSuperAdmin(); };
-    window.updProf = async (id, status) => { showLoader(true); await db.from('profiles').update({status}).eq('id',id); loadSuperAdmin(); };
-    window.warn = (id) => { const m=prompt("Enter warning:"); if(m){ showLoader(true); db.from('profiles').update({warning_message:m}).eq('id',id).then(()=>{showLoader(false);loadSuperAdmin();}); } };
-    
-    window.executeSearch = async () => {
-        const t=document.getElementById('searchType').value, q=document.getElementById('searchInput').value.trim().toLowerCase(), r=document.getElementById('searchResults');
-        if(!q) return; r.innerHTML = '<p style="font-size:12px;color:var(--secondary);text-align:center;">Querying...</p>';
-        try {
-            if(t==='users') {
-                const {data} = await db.from('profiles').select('id,username,full_name,avatar_url,status').ilike('username',`%${q}%`).eq('status','active');
-                r.innerHTML = !data.length ? '<p style="font-size:12px;text-align:center;">No residents.</p>' : data.map(u=>`<div style="padding:10px;background:var(--card-bg);border-radius:8px;border:1px solid var(--glass-border);display:flex;justify-content:space-between;align-items:center;"><div style="display:flex;align-items:center;gap:8px;"><div class="avatar-wrapper" style="width:30px;height:30px;">${u.avatar_url?`<img src="${u.avatar_url}">`:svgs["User"]}</div><div><b>@${u.username}</b><br><span style="font-size:10px;">${u.full_name}</span></div></div>${currentWorkspace&&isAdmin()?`<button class="success" style="width:auto;padding:4px 8px;margin:0;font-size:10px;" onclick="inviteUser('${u.id}')">Invite</button>`:'<span style="font-size:10px;">View Only</span>'}</div>`).join('');
-            } else {
-                const {data} = await db.from('workspaces').select('id,name,photo_url').eq('id',q).eq('status','active');
-                r.innerHTML = !data.length ? '<p style="font-size:12px;text-align:center;">No environment.</p>' : data.map(w=>`<div style="padding:10px;background:var(--card-bg);border-radius:8px;border:1px solid var(--glass-border);display:flex;justify-content:space-between;align-items:center;"><div style="display:flex;align-items:center;gap:8px;"><div class="avatar-wrapper" style="width:30px;height:30px;background:rgba(34,211,238,0.1);color:var(--secondary);">${w.photo_url?`<img src="${w.photo_url}">`:'📁'}</div><b>${w.name}</b></div><button class="success" style="width:auto;padding:4px 8px;margin:0;font-size:10px;" onclick="requestJoin('${w.id}')">Req Join</button></div>`).join('');
-            }
-        } catch(e) { r.innerHTML=`<p style="color:var(--danger);font-size:12px;">${e.message}</p>`; }
-    }
-    window.inviteUser = async (uid) => { if(!currentWorkspace) return; try{await db.from('workspace_members').insert([{workspace_id: currentWorkspace.workspace_id, user_id: uid, role: 'member', status: 'pending_invite'}]); pushNotif(uid, `You were invited to ${currentWorkspace.workspaces.name}`); customAlert("Invite Sent");}catch(e){customAlert(e.message);} };
-    window.requestJoin = async (id) => { try{await db.from('workspace_members').insert([{workspace_id: id, user_id: sessionUser.id, role: 'member', status: 'pending_approval'}]); customAlert("Request Sent");}catch(e){customAlert(e.message);} };
-    
-    // Optimistic UI for responding to invites
-    window.respondInvite = async (id, s) => { 
-        const el = document.getElementById('inv_'+id); 
-        if(el) el.style.display = 'none'; // Instant UI Feedback
-        try { 
-            await db.from('workspace_members').update({status:s}).eq('workspace_id',id).eq('user_id',sessionUser.id); 
-            setTimeout(() => loadLobby(), 500); // Reload silently in background
-        } catch(e) { 
-            if(el) el.style.display = 'flex'; // Revert if failed
-            customAlert(e.message); 
-        } 
+    // --- SEARCH / DOSSIER / SUPER ADMIN ---
+    let searchTimeout;
+    window.handleSearchInput = () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(executeSearch, 300);
     };
 
-    window.onload = checkSession;
+    async function executeSearch() {
+        const type = document.getElementById('searchType').value;
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+        const resDiv = document.getElementById('searchResults');
+        
+        if(!query) { resDiv.innerHTML = ''; return; }
+        resDiv.innerHTML = '<p style="font-size:13px; color:var(--secondary); text-align:center;">Executing query...</p>';
+
+        try {
+            if (type === 'users') {
+                const { data, error } = await db.from('profiles').select('id, username, full_name, avatar_url, status, contact_email, phone, messenger, github, bio').or(`username.ilike.%${query}%,full_name.ilike.%${query}%`).limit(15);
+                if(error) throw error;
+                const act = data.filter(u => u.status === 'active');
+                
+                if(!act.length) resDiv.innerHTML = '<p style="font-size:13px; color:var(--text-muted); text-align:center;">No valid residents found.</p>';
+                else {
+                    resDiv.innerHTML = act.map(u => {
+                        const uAvatar = u.avatar_url ? `<img src="${u.avatar_url}">` : svgs["User"];
+                        return `
+                        <div onclick="openWorkspaceUserModal('${u.id}')" style="cursor:pointer; padding:15px; background:var(--card-bg); border-radius:10px; border: 1px solid var(--glass-border); display:flex; justify-content:space-between; align-items:center; transition:0.2s;" onmouseover="this.style.borderColor='var(--secondary)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+                            <div style="display:flex; align-items:center; gap: 12px;">
+                                <div class="avatar-wrapper" style="width:35px; height:35px;">${uAvatar}</div>
+                                <div><div style="font-weight:bold; font-size:15px; color: var(--secondary);">@${u.username}</div><div style="font-size:12px; color:var(--text-muted); margin-top: 4px;">${u.full_name}</div><div style="font-size:11px; color:var(--text-muted); margin-top:6px; line-height:1.5;">${u.contact_email || 'No email'}<br>${u.phone || 'No phone'}${u.github ? `<br>${u.github}` : ''}${u.messenger ? `<br>${u.messenger}` : ''}</div></div>
+                            </div>
+                            <span style="font-size:16px; color:var(--text-muted);">➔</span>
+                        </div>
+                    `}).join('');
+                }
+            } else {
+                const { data, error } = await db.from('workspaces').select('id, name, status, photo_url').ilike('name', `%${query}%`).eq('status', 'active').limit(15);
+                if(error) throw error;
+                
+                if(!data.length) resDiv.innerHTML = '<p style="font-size:13px; color:var(--text-muted); text-align:center;">No active environment found.</p>';
+                else {
+                    resDiv.innerHTML = data.map(w => {
+                        const wAvatar = w.photo_url ? `<img src="${w.photo_url}">` : '<div style="color:var(--secondary); font-size:20px; font-weight:bold;">📁</div>';
+                        return `
+                        <div style="padding:15px; background:var(--card-bg); border-radius:10px; border: 1px solid var(--glass-border); display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; align-items:center; gap:15px;">
+                                <div class="avatar-wrapper" style="width:40px; height:40px; border-color:var(--secondary); background:rgba(34,211,238,0.1);">${wAvatar}</div>
+                                <span style="font-weight:bold; font-size:16px; color:var(--text);">${w.name}</span>
+                            </div>
+                            <button class="success" style="width:auto; padding:8px 15px; margin:0;" onclick="event.stopPropagation(); requestJoin('${w.id}')">Request Access</button>
+                        </div>
+                    `}).join('');
+                }
+            }
+        } catch(err) { resDiv.innerHTML = `<p style="color:var(--danger); font-size:13px; text-align:center;">Query Failed: ${err.message}</p>`; }
+    }
+
+    async function openWorkspaceUserModal(targetId) {
+        hideModal('searchModal');
+        showLoader(true, "Loading Dossier...");
+        try {
+            const { data: prof, error: pErr } = await db.from('profiles').select('*').eq('id', targetId).single();
+            if(pErr) throw pErr;
+
+            const { data: wm } = await db.from('workspace_members').select('workspace_id, role, status, display_role').eq('user_id', targetId);
+            const targetMems = wm || [];
+
+            const activeMems = targetMems.filter(m => m.status === 'active');
+            let targetWs = [];
+            if(activeMems.length > 0) {
+                const { data: wsData } = await db.from('workspaces').select('id, name, photo_url').in('id', activeMems.map(w=>w.workspace_id)).eq('status', 'active');
+                targetWs = wsData || [];
+            }
+
+            let wsRoleObj = null;
+            if (currentWorkspace) wsRoleObj = targetMems.find(w => w.workspace_id === currentWorkspace.workspace_id && w.status === 'active');
+
+            const av = prof.avatar_url ? `<img src="${prof.avatar_url}">` : svgs["User"];
+            const sticker = prof.sticker || '👤';
+            
+            const detailCards = getProfileContactDetails(prof).map(detail => `<div class="profile-detail"><strong>${detail.label}</strong>${detail.value}</div>`).join('');
+            let html = `
+                <div style="display:flex; justify-content:flex-start; margin-bottom: 10px;">
+                    <button style="background:transparent; border:none; color:var(--text-muted); width:auto; padding:0; font-size:14px; display:flex; align-items:center; gap:5px;" onclick="hideModal('userProfileModal'); showModal('searchModal');">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Back to Search
+                    </button>
+                </div>
+                <div style="text-align:center; padding: 10px 0 20px 0; border-bottom: 1px solid var(--glass-border);">
+                    <div style="position:relative; display:inline-block; margin-bottom:15px;">
+                        <div class="avatar-wrapper" style="width:80px; height:80px; border-color:var(--secondary);">${av}</div>
+                        <div style="position:absolute; bottom:-5px; right:-5px; font-size:20px; background:var(--bg-1); border-radius:50%; border:2px solid var(--glass-border); width:28px; height:28px; display:flex; justify-content:center; align-items:center;">${sticker}</div>
+                    </div>
+                    <h2 style="margin:0; font-size:22px; color:var(--text);">${prof.full_name}</h2>
+                    <div style="color:var(--secondary); font-size:14px; margin-top:4px;">@${prof.username}</div>
+                    ${wsRoleObj ? `<div style="font-size:12px; color:var(--text-muted); margin-top:8px; font-weight:bold;">${wsRoleObj.display_role} <span style="font-weight:normal;">(${wsRoleObj.role})</span></div>` : ''}
+                    ${prof.bio ? `<p style="font-size:12px; color:var(--text-muted); font-style:italic; margin:15px 0 0 0;">"${prof.bio}"</p>` : ''}
+                    <div class="profile-detail-grid">${detailCards}</div>
+                    ${renderPinnedSection(targetId)}
+                </div>
+            `;
+
+            if (currentWorkspace && wsRoleObj) {
+                const [ {data: tasks}, {data: funds} ] = await Promise.all([
+                    db.from('timeline').select('title, sched_date, progress').eq('workspace_id', currentWorkspace.workspace_id).eq('owner', targetId),
+                    db.from('funds').select('amount').eq('workspace_id', currentWorkspace.workspace_id).eq('contributor_id', targetId).eq('type', 'in')
+                ]);
+
+                const tList = tasks || []; const fList = funds || [];
+                const mDone = tList.filter(t => t.progress === 100).length;
+                const mFunds = fList.reduce((a, b) => a + Number(b.amount), 0);
+
+                html += `
+                <div style="padding: 20px 0;">
+                    <div style="background:var(--card-bg); padding:15px; border-radius:8px; border:1px solid var(--glass-border); margin-bottom: 15px;">
+                        <h4 style="margin:0 0 10px 0; color:var(--accent);">Environment Stats</h4>
+                        <div style="display:flex; justify-content:space-around; font-size:14px;">
+                            <div style="text-align:center;"><div style="color:var(--text-muted); font-size:11px;">Contributions</div><strong>₱${mFunds.toLocaleString()}</strong></div>
+                            <div style="text-align:center;"><div style="color:var(--text-muted); font-size:11px;">Tasks Done</div><strong>${mDone}/${tList.length}</strong></div>
+                        </div>
+                    </div>
+                    
+                    <div style="background:var(--card-bg); padding:15px; border-radius:8px; border:1px solid var(--glass-border);">
+                        <div class="collapse-header" onclick="toggleCol('dossierTasks')"><h4 style="margin:0; color:var(--accent);">Assigned Tasks</h4><span>▼</span></div>
+                        <div id="dossierTasks" style="max-height:200px; overflow-y:auto; padding-right:5px; margin-top:10px;">`;
+                
+                if (!tList.length) html += `<p style="font-size:12px; color:var(--text-muted); margin:0; text-align:center;">No tasks assigned.</p>`;
+                else {
+                    tList.sort((a,b) => new Date(a.sched_date) - new Date(b.sched_date)).forEach(t => {
+                        const isDone = t.progress === 100;
+                        html += `
+                            <div style="border-bottom:1px solid rgba(255,255,255,0.1); padding:8px 0; display:flex; justify-content:space-between; align-items: center;">
+                                <div style="font-size:13px; font-weight:bold;">${t.title}<br><span style="font-size:10px; color:var(--text-muted); font-weight:normal;">Target: ${t.sched_date || '--'}</span></div>
+                                <div style="font-size:12px; font-weight:bold; color:${isDone ? 'var(--success)' : 'var(--warning)'};">${t.progress}%</div>
+                            </div>`;
+                    });
+                }
+                html += `</div></div></div>`;
+            } else {
+                html += `
+                <div style="padding: 20px 0;">
+                    <div class="collapse-header" onclick="toggleCol('dossierPubEnv')"><h4 style="margin:0; color:var(--accent);">Active Environments</h4><span>▼</span></div>
+                    <div id="dossierPubEnv" style="max-height: 150px; overflow-y:auto; padding-right:5px; display:flex; flex-direction:column; gap:8px; margin-top:10px;">`;
+                if(!targetWs.length) html += `<div style="font-size:12px; color:var(--text-muted); text-align:center;">No public affiliations.</div>`;
+                else {
+                    targetWs.forEach(w => {
+                        const wAv = w.photo_url ? `<img src="${w.photo_url}" style="width:100%;height:100%;object-fit:cover;">` : `📁`;
+                        html += `<div style="display:flex; align-items:center; gap:10px; background:var(--card-bg); padding:10px; border-radius:8px; border:1px solid var(--glass-border);"><div style="width:30px; height:30px; border-radius:6px; overflow:hidden; background:rgba(34,211,238,0.1); color:var(--secondary); display:flex; justify-content:center; align-items:center; font-size:16px;">${wAv}</div><div><div style="font-size:14px; font-weight:bold;">${w.name}</div><div style="font-size:10px; color:var(--text-muted); margin-top:3px;">Visible only as profile info. Workspace entry is disabled here.</div></div></div>`;
+                    });
+                }
+                html += `</div></div>`;
+            }
+
+            const myAdminWs = myWorkspaces.filter(w => w.role === 'admin' && w.workspaces.status === 'active');
+            if (targetId !== sessionUser.id && myAdminWs.length > 0 && !currentWorkspace) {
+                html += `<div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; border:1px solid var(--glass-border);">
+                            <h4 style="margin:0 0 10px 0; color:var(--success);">Transmit Invitation</h4>
+                            <select id="inviteWsSelect" style="margin-bottom:10px;">
+                                <option value="" disabled selected>Select Environment...</option>`;
+                
+                myAdminWs.forEach(w => {
+                    const existingMem = targetMems.find(tm => tm.workspace_id === w.workspace_id);
+                    if (existingMem) {
+                        if (existingMem.status === 'active') html += `<option disabled>✅ ${w.workspaces.name} (Already a member)</option>`;
+                        else if (existingMem.status === 'pending_invite') html += `<option disabled>⏳ ${w.workspaces.name} (Invite Pending)</option>`;
+                        else if (existingMem.status === 'pending_approval') html += `<option disabled>⏳ ${w.workspaces.name} (Requesting to Join)</option>`;
+                    } else {
+                        html += `<option value="${w.workspace_id}">${w.workspaces.name}</option>`;
+                    }
+                });
+
+                html += `   </select>
+                            <button class="success" style="margin:0;" onclick="sendSpecificInvite('${targetId}')">Send Invite</button>
+                         </div>`;
+            } else if (targetId === sessionUser.id && !currentWorkspace) {
+                html += `<div style="text-align:center; padding-top:10px;"><button style="background:transparent; border:1px solid var(--glass-border); color:var(--text);" onclick="openProfileSettings()">⚙️ Edit My Profile</button></div>`;
+            }
+            document.getElementById('userProfileModalContent').dataset.userId = targetId;
+            document.getElementById('userProfileModalContent').innerHTML = html;
+            showModal('userProfileModal');
+        } catch(e) {
+            customAlert(e.message);
+        } finally {
+            showLoader(false);
+        }
+    }
+
+    async function sendSpecificInvite(targetId) {
+        const wsId = document.getElementById('inviteWsSelect').value;
+        if(!wsId) return customAlert("Select an environment to invite them to.");
+        
+        showLoader(true, "Transmitting...");
+        try {
+            const { error } = await db.from('workspace_members').insert([{workspace_id: wsId, user_id: targetId, role: 'member', status: 'pending_invite'}]);
+            if(error) {
+                if(error.code === '23505') throw new Error("Resident is already part of or invited to this environment.");
+                throw error;
+            }
+            const ws = myWorkspaces.find(w => w.workspace_id === wsId);
+            pushNotif(targetId, `You were invited to ${ws.workspaces.name}`);
+            customAlert("Invitation transmitted successfully.", "Success", "✅");
+            hideModal('userProfileModal');
+        } catch (err) { 
+            customAlert("Transmission Failed: " + err.message); 
+        } finally {
+            showLoader(false);
+        }
+    }
+
+    window.requestJoin = async (id) => { 
+        showLoader(true);
+        try{
+            const {error} = await db.from('workspace_members').insert([{workspace_id: id, user_id: sessionUser.id, role: 'member', status: 'pending_approval'}]); 
+            if(error) { if(error.code==='23505') throw new Error("Request already pending."); throw error; }
+            customAlert("Request Sent");
+        }catch(e){customAlert(e.message);} finally { showLoader(false); }
+    };
+    
+    window.respondInvite = async (id, s) => { 
+        const el = document.getElementById('inv_'+id); 
+        if(el) el.style.display = 'none'; 
+        try { 
+            const {error} = await db.from('workspace_members').update({status:s}).eq('workspace_id',id).eq('user_id',sessionUser.id); 
+            if(error) throw error;
+            setTimeout(() => loadLobby(), 500); 
+        } 
+        catch(e) { if(el) el.style.display = 'flex'; customAlert(e.message); } 
+    };
+    window.switchSATab = (targetId, btn) => {
+        ['saUsersAll', 'saUsersWarned', 'saUsersBanned', 'saWorkspaces'].forEach(id => {
+            const el = document.getElementById(id);
+            if(el) el.style.display = id === targetId ? 'block' : 'none';
+        });
+        btn.closest('.tab-row').querySelectorAll('.tab-btn').forEach(tab => tab.classList.remove('active'));
+        btn.classList.add('active');
+    };
+    window.delDB = async (table, id, mod) => {
+        if(table === 'funds' && !canManageFunds()) return customAlert("Funds feature is not enabled for this workspace.");
+        const label = table === 'workspaces' ? 'workspace' : 'item';
+        customConfirm(`Delete this ${label}?`, async () => {
+            showLoader(true, 'Deleting...');
+            try {
+                const { error } = await db.from(table).delete().eq('id', id);
+                if(error) throw error;
+                if(table === 'workspaces') await loadSuperAdmin();
+                else renderModule(mod);
+            } catch (e) {
+                customAlert(e.message);
+            } finally {
+                showLoader(false);
+            }
+        });
+    };
+
+    // --- SUPER ADMIN ---
+    async function loadSuperAdmin() {
+        if (userProfile.role !== 'superadmin') return;
+        if(!(await ensureSuperAdminAccess())) return;
+        document.getElementById('viewTitle').innerText = "Command Center";
+        document.getElementById('moduleFab').style.display = 'none';
+        
+        showLoader(true, "Aggregating Global Network Data...");
+        try {
+            const [
+                { data: pendingWs },
+                { data: allUsers },
+                { data: allMembers },
+                { data: allWorkspaces }
+            ] = await Promise.all([
+                db.from('workspaces').select('*').eq('status', 'pending'),
+                db.from('profiles').select('*'),
+                db.from('workspace_members').select('user_id, workspace_id, status').eq('status', 'active'),
+                db.from('workspaces').select('id, name, photo_url, status, features, profiles!created_by(username)')
+            ]);
+            const activeWorkspaces = (allWorkspaces || []).filter(ws => ws.status === 'active');
+            const warnedUsers = (allUsers || []).filter(u => !!u.warning_message);
+            const bannedUsers = (allUsers || []).filter(u => u.status === 'banned');
+
+            let userCounts = {}; let wsCounts = {};
+            (allMembers||[]).forEach(m => {
+                userCounts[m.user_id] = (userCounts[m.user_id] || 0) + 1;
+                wsCounts[m.workspace_id] = (wsCounts[m.workspace_id] || 0) + 1;
+            });
+
+            const topUsers = Object.entries(userCounts).sort((a,b) => b[1] - a[1]).slice(0, 5).map(entry => {
+                const u = (allUsers||[]).find(user => user.id === entry[0]);
+                return u ? { ...u, wsCount: entry[1] } : null;
+            }).filter(Boolean);
+
+            const topWs = Object.entries(wsCounts).sort((a,b) => b[1] - a[1]).slice(0, 5).map(entry => {
+                const w = (activeWorkspaces||[]).find(ws => ws.id === entry[0]);
+                return w ? { ...w, memCount: entry[1] } : null;
+            }).filter(Boolean);
+
+            let html = `<button onclick="loadLobby()" style="width:auto; margin-bottom:15px; background:rgba(255,255,255,0.1);">🔙 Return to Lobby</button>`;
+            
+            html += `<div class="grid-2" style="margin-bottom: 15px;">`;
+            html += `<div class="glass card" style="border-color: var(--secondary);"><div class="collapse-header" onclick="toggleCol('saTopWs')"><h4 style="margin:0; color: var(--secondary);">Top Active Environments</h4><span>▼</span></div><div id="saTopWs" style="margin-top:10px;">`;
+            if (topWs.length === 0) html += `<p style="font-size:12px; color:var(--text-muted);">No active environments.</p>`;
+            topWs.forEach(w => { html += `<div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:13px;"><span>${w.name}</span><span style="font-weight:bold; color:var(--secondary);">${w.memCount} Residents</span></div>`; });
+            html += `</div></div>`;
+
+            html += `<div class="glass card" style="border-color: var(--accent);"><div class="collapse-header" onclick="toggleCol('saTopUsr')"><h4 style="margin:0; color: var(--accent);">Most Active Residents</h4><span>▼</span></div><div id="saTopUsr" style="margin-top:10px;">`;
+            if (topUsers.length === 0) html += `<p style="font-size:12px; color:var(--text-muted);">No active residents.</p>`;
+            topUsers.forEach(u => { html += `<div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:13px; cursor:pointer;" onclick="openWorkspaceUserModal('${u.id}')"><span>@${u.username}</span><span style="font-weight:bold; color:var(--accent);">${u.wsCount} Environments</span></div>`; });
+            html += `</div></div></div>`;
+
+            html += `<div class="grid-2">`;
+            html += `<div class="glass card"><div class="collapse-header" onclick="toggleCol('saAuth')"><h3 class="neon" style="color:#f59e0b; margin:0;">Environment Authorizations</h3><span>▼</span></div><div id="saAuth" style="margin-top:10px;">`;
+            if(!pendingWs || pendingWs.length === 0) html += `<p style="font-size:13px; color:var(--text-muted); text-align:center; padding: 20px;">No pending requests.</p>`;
+            else {
+                pendingWs.forEach(ws => {
+                    html += `<div style="border:1px solid var(--glass-border); padding:15px; border-radius:8px; margin-bottom:10px; background:var(--card-bg);"><div style="font-weight:bold; font-size: 16px; color: var(--text);">${ws.name}</div><div style="font-size:11px; color:var(--text-muted); margin: 8px 0; line-height: 1.4;"><b>ID:</b> ${ws.id}<br><b>Features:</b> ${ws.features.join(', ')}</div><button class="success" style="padding:10px; margin:0;" onclick="approveWs('${ws.id}')">Authorize</button></div>`;
+                });
+            }
+            html += `</div></div>`;
+
+            html += `<div class="glass card"><div class="collapse-header" onclick="toggleCol('saReg')"><h3 class="neon" style="margin:0;">Global Registry & Security</h3><span>▼</span></div><div id="saReg" style="margin-top:10px;"><div class="tab-row"><button class="tab-btn active" onclick="switchSATab('saUsersAll', this)">All Accounts</button><button class="tab-btn" onclick="switchSATab('saUsersWarned', this)">Warned Accounts</button><button class="tab-btn" onclick="switchSATab('saUsersBanned', this)">Banned Accounts</button><button class="tab-btn" onclick="switchSATab('saWorkspaces', this)">Workspaces</button></div>`;
+            const renderUserRows = (users) => !users.length ? `<p style="font-size:12px;color:var(--text-muted);">No accounts in this filter.</p>` : users.map(u => {
+                    const uAvatar = u.avatar_url ? `<img src="${u.avatar_url}">` : svgs["User"]; const isBanned = u.status === 'banned';
+                    return `
+                    <div style="padding:15px; border-bottom:1px solid var(--glass-border); background:var(--card-bg); margin-bottom:10px; border-radius:8px; opacity: ${isBanned ? '0.5' : '1'};">
+                        <div style="display:flex; justify-content:space-between; align-items: center; margin-bottom: 10px;">
+                            <div style="display:flex; align-items:center; gap: 12px; cursor:pointer;" onclick="openWorkspaceUserModal('${u.id}')">
+                                <div class="avatar-wrapper" style="width:35px; height:35px; border-color:${isBanned ? 'var(--danger)' : 'var(--glass-border)'};">${uAvatar}</div>
+                                <div><div style="font-size:15px; font-weight:bold; ${isBanned ? 'text-decoration: line-through; color: var(--danger);' : ''}">${u.full_name}</div><div style="font-size:11px; color:var(--text-muted);">@${u.username}</div></div>
+                            </div>
+                            <span style="font-size:10px; padding: 4px 8px; background: rgba(34,211,238,0.1); border-radius: 4px; border: 1px solid var(--secondary); color:var(--secondary); font-weight:bold;">${u.role.toUpperCase()}</span>
+                        </div>
+                        ${u.id !== sessionUser.id && u.role !== 'superadmin' ? `
+                            <div style="display:flex; gap: 8px;">
+                                ${isBanned ? `<button class="success" style="padding:8px; margin:0; font-size:11px;" onclick="unbanUser('${u.id}')">Restore Access</button>` : `<button class="warning" style="padding:8px; margin:0; font-size:11px;" onclick="warnUser('${u.id}')">Send Warning</button><button class="danger" style="padding:8px; margin:0; font-size:11px;" onclick="banUser('${u.id}', '${u.username}')">Ban Resident</button>`}
+                            </div>
+                        ` : '<div style="font-size:11px; color:var(--secondary); text-align:center;">Security Clearance: MAX</div>'}
+                    </div>`;
+                }).join('');
+            html += `<div id="saUsersAll">${renderUserRows(allUsers || [])}</div>`;
+            html += `<div id="saUsersWarned" style="display:none;">${renderUserRows(warnedUsers)}</div>`;
+            html += `<div id="saUsersBanned" style="display:none;">${renderUserRows(bannedUsers)}</div>`;
+            html += `<div id="saWorkspaces" style="display:none; max-height:400px; overflow-y:auto; padding-right:5px;">`;
+            if(!allWorkspaces || !allWorkspaces.length) html+= `<p style="font-size:12px;color:var(--text-muted);">No environments exist.</p>`;
+            allWorkspaces?.forEach(w=>{
+                const wAv = w.photo_url ? `<img src="${w.photo_url}" style="width:100%;height:100%;object-fit:cover;">` : `📁`;
+                html+= `<div style="padding:12px; border:1px solid var(--glass-border); background:var(--card-bg); margin-bottom:8px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; gap:10px;"><div style="display:flex; align-items:center; gap:12px; cursor:pointer;" onclick="enterWorkspaceAsSuperAdmin('${w.id}')"><div style="width:30px; height:30px; border-radius:6px; overflow:hidden; background:rgba(34,211,238,0.1); color:var(--secondary); display:flex; justify-content:center; align-items:center;">${wAv}</div><div><div style="font-weight:bold; color:var(--secondary);">${w.name}</div><div style="font-size:10px; color:var(--text-muted); margin-top:2px;">Creator: @${w.profiles?.username || 'Unknown'} • Status: ${w.status}</div><div style="font-size:10px; color:var(--text-muted); margin-top:2px;">Features: ${(w.features || []).join(', ') || 'None'}</div></div></div><div class="pin-row"><button class="success" style="width:auto; padding:6px 12px; margin:0; font-size:10px;" onclick="enterWorkspaceAsSuperAdmin('${w.id}')">Open</button><button class="danger" style="width:auto; padding:6px 12px; margin:0; font-size:10px;" onclick="delDB('workspaces', '${w.id}', 'Lobby')">Purge</button></div></div>`;
+            });
+            html+= `</div></div></div>`;
+
+            document.getElementById('contentArea').innerHTML=html; 
+        } catch(err) { customAlert("Command Center Load Error: " + err.message); } finally { showLoader(false); }
+    }
+
+    async function approveWs(wsId) { showLoader(true, "Authorizing..."); try { const {error} = await db.from('workspaces').update({ status: 'active' }).eq('id', wsId); if(error) throw error; await loadSuperAdmin(); } catch(err) { customAlert("Authorization failed: " + err.message); showLoader(false); } }
+    async function banUser(userId, username) { customConfirm(`Are you sure you want to permanently suspend @${username}?`, async () => { showLoader(true, "Suspending user..."); try { const {error} = await db.from('profiles').update({ status: 'banned' }).eq('id', userId); if(error) throw error; await loadSuperAdmin(); } catch(err) { customAlert("Suspension failed: " + err.message); showLoader(false); } }, "Confirm Ban", "🚫"); }
+    async function unbanUser(userId) { showLoader(true, "Restoring access..."); try { const {error} = await db.from('profiles').update({ status: 'active' }).eq('id', userId); if(error) throw error; await loadSuperAdmin(); } catch(err) { customAlert("Restore failed: " + err.message); showLoader(false); } }
+    function warnUser(userId) { const msg = prompt("Enter official warning message:"); if (!msg) return; showLoader(true, "Transmitting Warning..."); db.from('profiles').update({ warning_message: msg }).eq('id', userId).then(({error}) => { showLoader(false); if (error) customAlert("Transmission failed: " + error.message); else { customAlert("Warning transmitted successfully.", "Success", "✅"); loadSuperAdmin(); } }); }
+
+    window.onload = () => { checkSession(); };
 </script>
 </body>
 </html>
